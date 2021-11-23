@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import "../environments/gsap-config";
 
 @Component({
   selector: 'app-root',

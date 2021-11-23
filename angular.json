@@ -60,7 +60,11 @@
             },
             "development": {
               "buildOptimizer": false,
-              "optimization": false,
+              "optimization": {
+                "styles": {
+                  "minify": true
+                }
+              },
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,

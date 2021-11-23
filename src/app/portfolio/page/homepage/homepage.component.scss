@@ -1,0 +1,68 @@
+@import "src/assets/sass/variables";
+
+div#homepage{
+  display: flex;
+  flex: 1 1 auto;
+  width: 100vh;
+  height: 100vh;
+  //z-index: -1;
+
+  header{
+    position: absolute;
+    top: 0;
+    display: flex;
+    width: 100%;
+
+    portfolio-header{
+      flex: 1 1 auto;
+    }
+  }
+
+  main{
+    display: flex;
+    flex: 1 1 auto;
+    overflow-y: hidden;
+    flex-direction: column;
+    justify-content: center;
+
+    #particles-js{
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      top:0;
+      bottom:0;
+      right:0;
+      left: 0;
+      background-color: $dark-color;
+    }
+
+    .card{
+      display: flex;
+      align-self: center;
+      //width: 15rem;
+      //height: 10rem;
+      mat-card{
+        display: flex;
+        flex-direction: row;
+
+        div.card-avatar{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+          padding: 1rem;
+
+          img{
+            height: 100px;
+            width: 100px;
+          }
+        }
+      }
+
+    }
+
+
+
+  }
+}
