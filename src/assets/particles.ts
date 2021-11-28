@@ -55,9 +55,9 @@ export const particlesOpt = {
         "enable": true,
         "mode": "trail",
         "parallax": {
-          "enable": false,
-          "force": 2,
-          "smooth": 10
+          "enable": true,
+          "force": 1,
+          "smooth": 95
         }
       },
       "resize": true
@@ -463,7 +463,7 @@ export const particlesOpt = {
       "drift": 0,
       "enable": true,
       "gravity": {
-        "acceleration": 9.81,
+        "acceleration": 0.01,
         "enable": false,
         "inverse": false,
         "maxSpeed": 50
@@ -508,11 +508,11 @@ export const particlesOpt = {
     "number": {
       "density": {
         "enable": true,
-        "area": 800,
+        "area": 1200,
         "factor": 1000
       },
       "limit": 0,
-      "value": 100
+      "value": 200
     },
     "opacity": {
       "random": {

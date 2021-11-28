@@ -1,0 +1,22 @@
+mat-card{
+  display: flex;
+  flex-direction: row;
+  width: 500px;
+
+  div.card-avatar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 1rem;
+
+    img{
+      height: 100px;
+      width: 100px;
+    }
+  }
+
+  mat-card-content{
+    padding-left: 1rem;
+  }
+}

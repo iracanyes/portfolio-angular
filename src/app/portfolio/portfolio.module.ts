@@ -15,6 +15,9 @@ import { AboutComponent } from './page/about/about.component';
 import {MatCardModule} from "@angular/material/card";
 import { SkillsComponent } from './page/skills/skills.component';
 import {NgParticlesModule} from "ng-particles";
+import { HomeCardComponent } from './component/home-card/home-card.component';
+import { ProgressBarComponent } from './widget/progress-bar/progress-bar.component';
+import { SkillsCardComponent } from './component/skills-card/skills-card.component';
 
 
 const matModules = [
@@ -33,7 +36,10 @@ const matModules = [
     PageNotFoundComponent,
     HeaderComponent,
     AboutComponent,
-    SkillsComponent
+    SkillsComponent,
+    HomeCardComponent,
+    ProgressBarComponent,
+    SkillsCardComponent
   ],
   imports: [
     BrowserModule,

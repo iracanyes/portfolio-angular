@@ -3,150 +3,231 @@
     <portfolio-header></portfolio-header>
   </header>
   <main>
+    <div
+      class="items-wrapper"
+      #wrapper
+    >
+      <div id="skills-home-card" class="item">
+        <div
+          class="card"
+          fadeInAnimation
+          [duration]="1"
+          [delay]="1"
+        >
+          <mat-card class="skills-card">
+            <mat-card-header>
+              <mat-card-title>Academic</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <div class="row">
+                <div class="title">PHP</div>
 
-    <div class="row">
-      <div id="home" class="column">
-        <div
-          class="card"
-          fadeInAnimation
-          [duration]="1"
-          [delay]="1"
-        >
-          <mat-card class="example-card">
-            <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title>Shiba Inu 1</mat-card-title>
-              <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-            </mat-card-header>
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-            <mat-card-content>
-              <p>
-                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                bred for hunting.
-              </p>
-            </mat-card-content>
-            <mat-card-actions>
-              <button mat-button>LIKE</button>
-              <button mat-button>SHARE</button>
-            </mat-card-actions>
-          </mat-card>
-        </div>
+                <app-progress-bar
+                  [progress]="89"
+                  [total]="100"
+                ></app-progress-bar>
+              </div>
+              <div class="row">
+                <div class="title">Javascript</div>
+                <app-progress-bar [progress]="89" [total]="100"></app-progress-bar>
+              </div>
+              <div class="row">
+                <div class="title">C++</div>
+                <app-progress-bar [progress]="89" [total]="100"></app-progress-bar>
+              </div>
+              <div class="row">
+                <div class="title">Java</div>
+                <app-progress-bar [progress]="89" [total]="100"></app-progress-bar>
+              </div>
 
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button>Next</button>
+              <button mat-button>Previous</button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+        <button
+          mat-button
+          class="show-more"
+          (click)="see_more(1)"
+        >
+          <mat-icon>expand_more</mat-icon>
+          See more
+        </button>
       </div>
-      <div id="academy" class="column">
+      <div class="item">
         <div
           class="card"
           fadeInAnimation
           [duration]="1"
           [delay]="1"
         >
-          <mat-card class="example-card">
+          <mat-card class="skills-card">
             <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title>Shiba Inu 2</mat-card-title>
-              <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+              <mat-card-title>Academic</mat-card-title>
             </mat-card-header>
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
             <mat-card-content>
-              <p>
-                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                bred for hunting.
-              </p>
+              <div class="row">
+                <div class="title">PHP</div>
+
+                <app-progress-bar
+                  [progress]="89"
+                  [total]="100"
+                ></app-progress-bar>
+              </div>
+              <div class="row">
+                <div class="title">Javascript</div>
+                <app-progress-bar [progress]="89" [total]="100"></app-progress-bar>
+              </div>
+              <div class="row">
+                <div class="title">C++</div>
+                <app-progress-bar [progress]="89" [total]="100"></app-progress-bar>
+              </div>
+              <div class="row">
+                <div class="title">Java</div>
+                <app-progress-bar [progress]="89" [total]="100"></app-progress-bar>
+              </div>
+
             </mat-card-content>
             <mat-card-actions>
-              <button mat-button>LIKE</button>
-              <button mat-button>SHARE</button>
+              <button mat-button>Next</button>
+              <button mat-button>Previous</button>
             </mat-card-actions>
           </mat-card>
         </div>
+        <button
+          mat-button
+          class="show-more"
+          (click)="see_more(2)"
+        >
+          <mat-icon>expand_more</mat-icon>
+          See more
+        </button>
+        <button
+          class="go-top-button"
+          (click)="see_more(0)"
+        >
+          <mat-icon>expand_less</mat-icon>
+        </button>
       </div>
-      <div id="e-learning" class="column">
+      <div class="item">
         <div
           class="card"
           fadeInAnimation
           [duration]="1"
           [delay]="1"
         >
-          <mat-card class="example-card">
+          <mat-card class="skills-card">
             <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title>Shiba Inu 3</mat-card-title>
-              <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+              <mat-card-title>Academic</mat-card-title>
             </mat-card-header>
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
             <mat-card-content>
-              <p>
-                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                bred for hunting.
-              </p>
+              <div class="row">
+                <div class="title">PHP</div>
+
+                <app-progress-bar
+                  [progress]="89"
+                  [total]="100"
+                ></app-progress-bar>
+              </div>
+              <div class="row">
+                <div class="title">Javascript</div>
+                <app-progress-bar [progress]="89" [total]="100"></app-progress-bar>
+              </div>
+              <div class="row">
+                <div class="title">C++</div>
+                <app-progress-bar [progress]="89" [total]="100"></app-progress-bar>
+              </div>
+              <div class="row">
+                <div class="title">Java</div>
+                <app-progress-bar [progress]="89" [total]="100"></app-progress-bar>
+              </div>
+
             </mat-card-content>
             <mat-card-actions>
-              <button mat-button>LIKE</button>
-              <button mat-button>SHARE</button>
+              <button mat-button>Next</button>
+              <button mat-button>Previous</button>
             </mat-card-actions>
           </mat-card>
         </div>
+        <button
+          mat-button
+          class="show-more"
+          (click)="see_more(3)"
+        >
+          <mat-icon>expand_more</mat-icon>
+          See more
+        </button>
+        <button
+          class="go-top-button"
+          (click)="see_more(0)"
+        >
+          <mat-icon>expand_less</mat-icon>
+        </button>
       </div>
-      <div id="contact" class="column">
+      <div class="item">
         <div
           class="card"
           fadeInAnimation
           [duration]="1"
           [delay]="1"
         >
-          <mat-card class="example-card">
+          <mat-card class="skills-card">
             <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title>Shiba Inu 4</mat-card-title>
-              <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+              <mat-card-title>Academic</mat-card-title>
             </mat-card-header>
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
             <mat-card-content>
-              <p>
-                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                bred for hunting.
-              </p>
+              <div class="row">
+                <div class="title">PHP</div>
+
+                <app-progress-bar
+                  [progress]="89"
+                  [total]="100"
+                ></app-progress-bar>
+              </div>
+              <div class="row">
+                <div class="title">Javascript</div>
+                <app-progress-bar [progress]="89" [total]="100"></app-progress-bar>
+              </div>
+              <div class="row">
+                <div class="title">C++</div>
+                <app-progress-bar [progress]="89" [total]="100"></app-progress-bar>
+              </div>
+              <div class="row">
+                <div class="title">Java</div>
+                <app-progress-bar [progress]="89" [total]="100"></app-progress-bar>
+              </div>
+
             </mat-card-content>
             <mat-card-actions>
-              <button mat-button>LIKE</button>
-              <button mat-button>SHARE</button>
+              <button mat-button>Next</button>
+              <button mat-button>Previous</button>
             </mat-card-actions>
           </mat-card>
         </div>
+        <button
+          mat-button
+          class="show-more"
+          (click)="see_more(0)"
+        >
+          <mat-icon>expand_more</mat-icon>
+          See more
+        </button>
+        <button
+          class="go-top-button"
+          (click)="see_more(0)"
+        >
+          <mat-icon>expand_less</mat-icon>
+        </button>
       </div>
+      <div class="bar" #barLength>
+        <div class="barLength" #handler></div>
+      </div>
+
+
     </div>
-    <div class="row">
-      <div class="column">
 
-      </div>
-      <div class="column">
-
-      </div>
-      <div class="column">
-
-      </div>
-      <div class="column">
-
-      </div>
-    </div>
-    <div class="row">
-      <div class="column">
-
-      </div>
-      <div class="column">
-
-      </div>
-      <div class="column">
-
-      </div>
-      <div class="column">
-
-      </div>
-    </div>
 
   </main>
 </div>

@@ -40,25 +40,6 @@ div#homepage{
     .card{
       display: flex;
       align-self: center;
-      //width: 15rem;
-      //height: 10rem;
-      mat-card{
-        display: flex;
-        flex-direction: row;
-
-        div.card-avatar{
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          height: 100%;
-          padding: 1rem;
-
-          img{
-            height: 100px;
-            width: 100px;
-          }
-        }
-      }
 
     }
 
