@@ -1,9 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-@import "assets/sass/styles";
+@import "src/assets/sass/base-dir";
 
 html, body, app-root { display: flex; flex: 1 1 auto }
 router-outlet + * {
   display: flex;
   flex: 1 1 auto;
 }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Outfit, Roboto, "Helvetica Neue", sans-serif; }

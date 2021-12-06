@@ -1,19 +1,27 @@
+@use "@angular/material" as mat;
+
+
+
 $primary-color: #125EA9;
 $primary-color-dark: #084c8e;
 $primary-color-darker: #113d65;
 $primary-color-lighter: #1978d7;
 // Dark color
 $dark-color: #29333B;
-$red-darker: #3F3F3F;
+$red-darker: #853434;
 
 // Red
-$red-dark: #503131;
-
+$red-darker: #503131;
+$red-dark: #722929;
 // Yellow
 $yellow-darker: #554e34;
-
+$yellow-dark: #9a922c;
 // Green
 $green-darker: #415534;
-
-// Yellow
-$yellow-darker: #554e34;
+$green-dark: #4e7a34;
+// Orange
+$orange-darker: #81492a;
+$orange-dark: #98502d;
+// Blue
+$blue-darker: #2c3a59;
+$blue-dark: #254b7a;

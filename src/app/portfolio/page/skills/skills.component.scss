@@ -1,6 +1,7 @@
 @import "src/assets/sass/variables";
+@import url('https://fonts.googleapis.com/css2?family=Original+Surfer&display=swap');
 
-div#homepage{
+div#skillpage{
   display: flex;
   flex: 1 1 auto;
   width: 100vh;
@@ -26,7 +27,6 @@ div#homepage{
     //height: 100vh;
     background: url("../../../../assets/bg/blue-bottom-lines.jpg") #125EA9 no-repeat fixed right top;
     background-size: 100% 100%;
-    box: contain-box;
     flex-direction: column;
 
 
@@ -43,16 +43,48 @@ div#homepage{
         position: relative;
         //z-index: -2;
 
+        div.bg{
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100vh;
+          z-index: 0;
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          opacity: 0;
+        }
+
+        h1{
+          font: bold 2.5rem "Original Surfer";
+          position: absolute;
+          top: 100px;
+        }
+
         div.card{
           display: flex;
           width: 500px;
-          //background-color: red;
           position: absolute;
-          left: 5rem;
-          bottom: 30%;
+          top: 180px;
+          //border-top: 2px solid black;
+          border-left: 1px rgba(0,0,0,0.2);
+          border-right: 1px rgba(0,0,0,0.3);
+          border-bottom: 2px solid rgba(0,0,0,0.4);
+          box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 
           mat-card{
             width: 100%;
+            mat-card-content{
+              padding: 0.5rem 0.2rem 1rem 0.2rem;
+            }
+            mat-card-title{
+              font-family: Outfit;
+              font-size: 1rem;
+              margin-bottom: 1rem;
+            }
+
+
           }
 
         }
@@ -60,7 +92,8 @@ div#homepage{
         button.show-more{
           padding: 0.5rem 1rem;
           border-radius: 50px;
-          background-color: #e2e513;
+          background-color: $blue-dark;
+          color: white;
           position: absolute;
           bottom: 5rem;
           left: 50%;
@@ -77,8 +110,13 @@ div#homepage{
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color: #dad8d8;
+        color: white;
+        background-color: $orange-dark;
         font-size: 1.2rem;
+      }
+
+      div.item:nth-of-type(1){
+        background-color: $blue-dark;
       }
 
       div.item:nth-of-type(2){
@@ -86,7 +124,11 @@ div#homepage{
       }
 
       div.item:nth-of-type(3){
-        background-color: $yellow-darker;
+        background-color: $orange-darker;
+      }
+
+      div.item:nth-of-type(4){
+        background-color: $yellow-dark;
       }
 
       div.bar{

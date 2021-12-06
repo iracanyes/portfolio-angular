@@ -48,7 +48,7 @@ export class GsapService{
   public scrollTrigger(el: ElementRef, options: IScrollTriggerOptions): void{
     gsap.to(el, {
       scrollTrigger: {
-        trigger: options.trigger,
+        trigger: options.trigger ?  options.trigger : undefined,
         toggleActions: "restart none none none"
       },
       x: options.position?.x ? options.position.x : undefined,

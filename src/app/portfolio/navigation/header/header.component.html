@@ -4,14 +4,8 @@
   [duration]="1"
   [delay]="0"
 >
-  <button
-    mat-icon-button
-    class="example-icon"
-    aria-label="Example icon-button with menu icon"
-  >
-    <mat-icon>menu</mat-icon>
-  </button>
   <span
+    id="appName"
     fadeInAnimation
     [duration]="2"
     [delay]="1"
@@ -19,22 +13,37 @@
     Portfolio
   </span>
   <span class="example-spacer"></span>
-  <div #buttonGroup>
-    <button routerLink="/home" mat-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+  <div class="button-group" #buttonGroup>
+    <button
+      routerLink="/home"
+      mat-button
+      class="example-icon favorite-icon"
+      aria-label="Example icon-button with heart icon"
+    >
       <mat-icon>home</mat-icon>
       <span>Home</span>
     </button>
-    <button routerLink="/skills" mat-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <button
+      routerLink="/skills"
+      mat-button
+      class="example-icon favorite-icon"
+      aria-label="Example icon-button with heart icon"
+    >
       <mat-icon>psychology</mat-icon>
       <span>Skills</span>
     </button>
-    <button routerLink="/work" mat-button class="example-icon" aria-label="Example icon-button with share icon">
+    <button
+      routerLink="/work"
+      mat-button
+      class="example-icon"
+      aria-label="Work page"
+    >
       <mat-icon>school</mat-icon>
       <span>Work</span>
     </button>
     <button
       mat-button
-      routerLink="contact"
+      routerLink="/contact"
       class="example-icon"
       aria-label="Example icon-button with share icon"
     >

@@ -3,7 +3,7 @@
  * to prevent a lot of repeats and hard-to-mantain directives.
  */
 import {Directive, ElementRef, EventEmitter, Input, Output, ViewContainerRef} from "@angular/core";
-import { gsap, TimelineMax } from "gsap";
+import { gsap, ScrollTrigger, TimelineMax } from "gsap/all";
 
 @Directive({
   selector: "[coreAnimation]"
@@ -33,6 +33,8 @@ export class CoreAnimationDirective{
         this.animateOut(detail.parentViewRef);
       }
     );
+
+    gsap.registerPlugin(ScrollTrigger);
 
     // Config timeline
     this.timeline = new gsap.core.Timeline({

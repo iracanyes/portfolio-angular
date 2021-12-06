@@ -1,8 +1,20 @@
+
 mat-toolbar{
   display: flex;
   width: 100%;
   background-color: transparent;
   z-index: 1;
+
+  span#appName{
+    font-family: "Original Surfer";
+  }
+
+  div.button-group{
+    background-color: rgba(0,0,0,0.5);
+  }
+  button{
+    font-family: "Outfit";
+  }
 
 }
 .example-spacer{

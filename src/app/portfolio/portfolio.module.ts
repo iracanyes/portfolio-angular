@@ -18,13 +18,26 @@ import {NgParticlesModule} from "ng-particles";
 import { HomeCardComponent } from './component/home-card/home-card.component';
 import { ProgressBarComponent } from './widget/progress-bar/progress-bar.component';
 import { SkillsCardComponent } from './component/skills-card/skills-card.component';
+import { WorkComponent } from './page/work/work.component';
+import {MatStepperModule} from "@angular/material/stepper";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatChipsModule} from "@angular/material/chips";
+import {MatRippleModule} from "@angular/material/core";
+import { WorkDialogComponent } from './component/work-dialog/work-dialog.component';
+import { WorkDialogCardComponent } from './component/work-dialog-card/work-dialog-card.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 
 const matModules = [
   MatCardModule,
+  MatChipsModule,
   MatIconModule,
   MatButtonModule,
-  MatToolbarModule
+  MatFormFieldModule,
+  MatStepperModule,
+  MatToolbarModule,
+  MatRippleModule,
+  MatDialogModule
 ];
 
 
@@ -39,7 +52,10 @@ const matModules = [
     SkillsComponent,
     HomeCardComponent,
     ProgressBarComponent,
-    SkillsCardComponent
+    SkillsCardComponent,
+    WorkComponent,
+    WorkDialogComponent,
+    WorkDialogCardComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +65,7 @@ const matModules = [
     NgParticlesModule,
     ...matModules,
     DirectivesModule,
-    PortfolioRoutingModule
+    PortfolioRoutingModule,
   ],
   exports: []
 })
