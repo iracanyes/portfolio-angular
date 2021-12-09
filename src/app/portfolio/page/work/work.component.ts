@@ -1,6 +1,11 @@
 import {Component, ElementRef, OnInit, QueryList, ViewChildren} from '@angular/core';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import {
+  workMobileData,
+  workFrontendData,
+  workBackendData
+} from "../../../../data/work-data";
 
 @Component({
   selector: 'portfolio-work',
@@ -9,6 +14,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 })
 export class WorkComponent implements OnInit {
   @ViewChildren("wrapper") private wrapper: QueryList<ElementRef> | undefined;
+  workMobileData = workMobileData;
+  workFrontendData = workFrontendData;
+  workBackendData = workBackendData;
+
   constructor() {
     gsap.registerPlugin(ScrollTrigger);
   }
@@ -42,6 +51,24 @@ export class WorkComponent implements OnInit {
         }
       });
 
+      // fade in animation
+      const card = section.querySelector(".card");
+      console.log("onInit card", card);
+      gsap.fromTo(card, {
+        opacity: 0.0,
+      }, {
+        opacity: 1.0,
+        ease: "none",
+        delay: 2,
+        duration: 4,
+        scrollTrigger: {
+          trigger: section,
+          scrub: true,
+          toggleActions: "restart"
+        }
+
+      });
+
     });
   }
 
@@ -50,37 +77,74 @@ export class WorkComponent implements OnInit {
 
       // Retrieve  HTML Collection items
       const wrapperItems = this.wrapper?.get(0)?.nativeElement;
+      gsap.utils.toArray("section").map((section: any, index) => {
+        if(itemIndex === index){
+          const cardEl = section.children[2];
+          const button0 = cardEl.children[0];
+          if(section){
+            // Scroll to next section
+            gsap.to(window, {
+              scrollTo: section,
+              duration: 2
+            });
 
+            // Card animation
+            gsap.fromTo(
+              cardEl,
+              {
+                opacity: 1
+              },
+              {
+                scrollTrigger: {
+                  trigger: cardEl,
+                  scrub: true,
+                  toggleActions: "restart none none none"
+                },
+                //x: "+20%",
+                opacity: 0,
+                delay: 6,
+                duration: 2
+                //rotate: 360,
+              }
+            );
+
+
+          }
+        }
+      });
       // div.item
-      const section = wrapperItems.children[itemIndex];
-      // div.card reference
+      //const section = wrapperItems.children[itemIndex];
+      /* div.card reference
       const cardEl = section.children[2];
-      //const matCardEl = cardEl.children[0];
+      const button0 = cardEl.children[0];
       if(section){
         // Scroll to next section
         gsap.to(window, {
           scrollTo: section,
-          duration: 3
+          duration: 2
         });
 
-        //
-        gsap.to(
+        // Card animation
+        gsap.fromTo(
           cardEl,
           {
-            //scrollTo: elContainer,
+            opacity: 1
+          },
+          {
             scrollTrigger: {
               trigger: cardEl,
               scrub: true,
               toggleActions: "restart none none none"
             },
-            x: "+70%",
+            //x: "+20%",
+            opacity: 0,
+            delay: 6,
+            duration: 2
             //rotate: 360,
-            duration: 5
           }
         );
-
-
       }
+       */
     }
   }
 

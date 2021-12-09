@@ -1,13 +1,18 @@
 <div
   class="item"
 >
-  <div
+  <button
     mat-ripple
     matRippleColor=""
     class="dialog-button"
     (click)="openDialog()"
   >
-    <img src="assets/img/netflix.png" alt="Netflix like app">
-  </div>
+    <img
+      mat-ripple
+      src="{{ item.icon }}"
+      alt="{{ item.data.title }}"
+      title="{{ item.data.title }}"
+    >
+  </button>
 
 </div>

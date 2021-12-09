@@ -5,6 +5,7 @@ import {PageNotFoundComponent} from "../app/portfolio/page/page-not-found/page-n
 import {SkillsComponent} from "../app/portfolio/page/skills/skills.component";
 import {AboutComponent} from "../app/portfolio/page/about/about.component";
 import {WorkComponent} from "../app/portfolio/page/work/work.component";
+import {ContactComponent} from "../app/portfolio/page/contact/contact.component";
 
 export const appRoutes: Routes  = [
   { path: '', component: HomepageComponent },
@@ -23,5 +24,5 @@ export const portfolioRoutes: Routes = [
   { path: 'home', component: HomepageComponent },
   { path: 'skills', component: SkillsComponent },
   { path: 'work', component: WorkComponent },
-  { path: "about", component: AboutComponent }
+  { path: "contact", component: ContactComponent }
 ];

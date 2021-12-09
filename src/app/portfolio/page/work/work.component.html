@@ -10,18 +10,9 @@
         class="card"
       >
         <mat-card class="skills-card">
-          <mat-card-header>
-            <!--
-              <mat-card-title>Academic</mat-card-title>
-            -->
-          </mat-card-header>
           <mat-card-content>
-            <portfolio-work-dialog></portfolio-work-dialog>
+            <portfolio-work-dialog *ngFor="let item of workMobileData" [item]="item"></portfolio-work-dialog>
           </mat-card-content>
-          <mat-card-actions>
-            <button mat-button>Next</button>
-            <button mat-button>Previous</button>
-          </mat-card-actions>
         </mat-card>
       </div>
       <button
@@ -32,53 +23,18 @@
         <mat-icon>expand_more</mat-icon>
         See more
       </button>
-      <button
-        class="go-top-button"
-        (click)="see_more(0)"
-      >
-        <mat-icon>expand_less</mat-icon>
-      </button>
+
     </section>
     <section>
       <div class="bg"></div>
-      <h1></h1>
+      <h1>Front-end works & websites</h1>
       <div
         class="card"
-        fadeInAnimation
-        [duration]="1"
-        [delay]="1"
       >
         <mat-card class="skills-card">
-          <mat-card-header>
-            <mat-card-title>Academic</mat-card-title>
-          </mat-card-header>
           <mat-card-content>
-            <div class="row">
-              <div class="title">PHP</div>
-
-              <app-progress-bar
-                [progress]="89"
-                [total]="100"
-              ></app-progress-bar>
-            </div>
-            <div class="row">
-              <div class="title">Javascript</div>
-              <app-progress-bar [progress]="89" [total]="100"></app-progress-bar>
-            </div>
-            <div class="row">
-              <div class="title">C++</div>
-              <app-progress-bar [progress]="89" [total]="100"></app-progress-bar>
-            </div>
-            <div class="row">
-              <div class="title">Java</div>
-              <app-progress-bar [progress]="89" [total]="100"></app-progress-bar>
-            </div>
-
+            <portfolio-work-dialog *ngFor="let item of workFrontendData" [item]="item"></portfolio-work-dialog>
           </mat-card-content>
-          <mat-card-actions>
-            <button mat-button>Next</button>
-            <button mat-button>Previous</button>
-          </mat-card-actions>
         </mat-card>
       </div>
       <button
@@ -98,7 +54,7 @@
     </section>
     <section>
       <div class="bg"></div>
-      <h1>SCROLL MORE TO SEE MORE</h1>
+      <h1>Back-end works</h1>
       <div
         class="card"
         fadeInAnimation
@@ -106,36 +62,9 @@
         [delay]="1"
       >
         <mat-card class="skills-card">
-          <mat-card-header>
-            <mat-card-title>Academic</mat-card-title>
-          </mat-card-header>
           <mat-card-content>
-            <div class="row">
-              <div class="title">PHP</div>
-
-              <app-progress-bar
-                [progress]="89"
-                [total]="100"
-              ></app-progress-bar>
-            </div>
-            <div class="row">
-              <div class="title">Javascript</div>
-              <app-progress-bar [progress]="89" [total]="100"></app-progress-bar>
-            </div>
-            <div class="row">
-              <div class="title">C++</div>
-              <app-progress-bar [progress]="89" [total]="100"></app-progress-bar>
-            </div>
-            <div class="row">
-              <div class="title">Java</div>
-              <app-progress-bar [progress]="89" [total]="100"></app-progress-bar>
-            </div>
-
+            <portfolio-work-dialog *ngFor="let item of workBackendData" [item]="item"></portfolio-work-dialog>
           </mat-card-content>
-          <mat-card-actions>
-            <button mat-button>Next</button>
-            <button mat-button>Previous</button>
-          </mat-card-actions>
         </mat-card>
       </div>
       <button
@@ -146,29 +75,12 @@
         <mat-icon>expand_more</mat-icon>
         See more
       </button>
-    </section>
-    <section>
-      <div class="bg"></div>
-      <h1>LOVING THE IMAGES</h1>
       <button
-        mat-button
-        class="show-more"
-        (click)="see_more(4)"
-      >
-        <mat-icon>expand_more</mat-icon>
-        See more
-      </button>
-    </section>
-    <section>
-      <div class="bg"></div>
-      <h1>NICE, RIGHT?</h1>
-      <button
-        mat-button
-        class="show-more"
+        class="go-top-button"
         (click)="see_more(0)"
+        matTooltip="Go top!"
       >
-        <mat-icon>expand_more</mat-icon>
-        See more
+        <mat-icon>expand_less</mat-icon>
       </button>
     </section>
   </main>

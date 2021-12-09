@@ -2,8 +2,19 @@
  * The goal of this directive is to define the standard methods and attributes for our future animation directives,
  * to prevent a lot of repeats and hard-to-mantain directives.
  */
-import {Directive, ElementRef, EventEmitter, Input, Output, ViewContainerRef} from "@angular/core";
-import { gsap, ScrollTrigger, TimelineMax } from "gsap/all";
+import {
+  Directive,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+  ViewContainerRef
+} from "@angular/core";
+import {
+  gsap,
+  ScrollTrigger,
+  TimelineMax
+} from "gsap/all";
 
 @Directive({
   selector: "[coreAnimation]"

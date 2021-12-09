@@ -29,23 +29,46 @@ section {
   h1{
     position: absolute;
     top: 5rem;
-    left: 40vh;
-    right: 40vh;
+    left: auto;
+    //right: auto;
+    font-family: "Original Surfer";
+    font-size: 2rem;
   }
 
   div.card{
     position: absolute;
-    top: 40vh;
-    left: 5rem;
+    bottom: 15vh;
+    left: auto;
+    //opacity: 1;
+
+    mat-card{
+      mat-card-content{
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+      }
+    }
+  }
+
+  div.card:nth-of-type(1){
+    opacity: 1;
   }
 
   button.show-more{
     padding: 0.5rem 1rem;
     border-radius: 10px;
     position: absolute;
-    bottom: 5rem;
-    left: 45%;
+    bottom: 5vh;
+    left: auto;
     background-color: rgba(0,0,0,0.3);
+  }
+
+  button.go-top-button{
+    position: absolute;
+    bottom: 5vh;
+    right: 5vh;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
   }
 }
 

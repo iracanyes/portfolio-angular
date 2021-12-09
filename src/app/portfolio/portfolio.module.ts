@@ -26,6 +26,8 @@ import {MatRippleModule} from "@angular/material/core";
 import { WorkDialogComponent } from './component/work-dialog/work-dialog.component';
 import { WorkDialogCardComponent } from './component/work-dialog-card/work-dialog-card.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import {MatTooltipModule} from "@angular/material/tooltip";
+import { ContactComponent } from './page/contact/contact.component';
 
 
 const matModules = [
@@ -37,7 +39,8 @@ const matModules = [
   MatStepperModule,
   MatToolbarModule,
   MatRippleModule,
-  MatDialogModule
+  MatDialogModule,
+  MatTooltipModule,
 ];
 
 
@@ -55,7 +58,8 @@ const matModules = [
     SkillsCardComponent,
     WorkComponent,
     WorkDialogComponent,
-    WorkDialogCardComponent
+    WorkDialogCardComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

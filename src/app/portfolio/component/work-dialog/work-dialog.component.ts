@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import {Component, OnInit, Inject, Input} from '@angular/core';
 import { MatDialog } from "@angular/material/dialog";
 import {WorkDialogCardComponent} from "../work-dialog-card/work-dialog-card.component";
 
@@ -8,39 +8,17 @@ import {WorkDialogCardComponent} from "../work-dialog-card/work-dialog-card.comp
   styleUrls: ['./work-dialog.component.scss']
 })
 export class WorkDialogComponent implements OnInit {
-
+  @Input() public item: any;
   constructor(
-    public dialog: MatDialog
+    public dialog: MatDialog,
   ) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   openDialog(): void{
     const dialogRef = this.dialog.open(WorkDialogCardComponent, {
       width: '400px',
-      data: {
-        title: "Natflix like app",
-        images: [
-          {
-            src: "https://picsum.photos/400/400?random=1",
-            title: "Netflix like homepage",
-            alt: "Netflix like homepage"
-          },
-          {
-            src: "https://picsum.photos/400/400?random=2",
-            title: "Netflix like homepage",
-            alt: "Netflix like homepage"
-          },
-          {
-            src: "https://picsum.photos/400/400?random=2",
-            title: "Netflix like homepage",
-            alt: "Netflix like homepage"
-          },
-
-        ],
-        content: "I wanted to learn streaming on mobile app as I consider it a must-know in the development of mobile application cross-platform for now and the future."
-      },
+      data: this.item.data,
     });
 
     dialogRef.afterClosed().subscribe(result => {
