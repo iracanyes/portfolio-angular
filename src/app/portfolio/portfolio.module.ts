@@ -25,9 +25,12 @@ import {MatChipsModule} from "@angular/material/chips";
 import {MatRippleModule} from "@angular/material/core";
 import { WorkDialogComponent } from './component/work-dialog/work-dialog.component';
 import { WorkDialogCardComponent } from './component/work-dialog-card/work-dialog-card.component';
-import {MatDialogModule} from "@angular/material/dialog";
+import {MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule} from "@angular/material/dialog";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import { ContactComponent } from './page/contact/contact.component';
+import { ContactFormComponent } from './component/contact-form/contact-form.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatInputModule} from "@angular/material/input";
 
 
 const matModules = [
@@ -35,6 +38,7 @@ const matModules = [
   MatChipsModule,
   MatIconModule,
   MatButtonModule,
+  MatInputModule,
   MatFormFieldModule,
   MatStepperModule,
   MatToolbarModule,
@@ -59,7 +63,8 @@ const matModules = [
     WorkComponent,
     WorkDialogComponent,
     WorkDialogCardComponent,
-    ContactComponent
+    ContactComponent,
+    ContactFormComponent
   ],
   imports: [
     BrowserModule,
@@ -67,10 +72,14 @@ const matModules = [
     RouterModule,
     FontAwesomeModule,
     NgParticlesModule,
+    ReactiveFormsModule,
     ...matModules,
     DirectivesModule,
     PortfolioRoutingModule,
   ],
-  exports: []
+  exports: [],
+  providers: [
+
+  ]
 })
 export class PortfolioModule{}

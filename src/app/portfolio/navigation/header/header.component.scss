@@ -2,18 +2,32 @@
 mat-toolbar{
   display: flex;
   width: 100%;
-  background-color: transparent;
+  background-color: rgba(0,0,0,0.5);
   z-index: 1;
 
   span#appName{
-    font-family: "Original Surfer";
+    font-size: 1.5rem;
+    font-family: "Original Surfer", Roboto, "Helvetica Neue", sans-serif;
+    position: absolute;
+    top: 1vh;
+    left: 2vh;
   }
 
   div.button-group{
-    background-color: rgba(0,0,0,0.5);
+
   }
   button{
     font-family: "Outfit";
+    font-size: 15px;
+    mat-icon{
+      margin-right: 5px;
+    }
+  }
+
+  .work-button{
+    mat-icon{
+      margin-right: 7px;
+    }
   }
 
 }

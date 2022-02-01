@@ -1,0 +1,26 @@
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label>Enter your email</mat-label>
+    <input matInput placeholder="pat@example.com" formControlName="email">
+    <mat-error *ngIf="email?.invalid">{{getErrorEmail()}}</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Subject of this message</mat-label>
+    <input matInput placeholder="50 reasons why?" formControlName="subject">
+    <mat-error *ngIf="subject?.invalid">{{getErrorSubject()}}</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Enter your message</mat-label>
+    <textarea
+      matInput
+      placeholder="Hello world"
+      formControlName="message"
+    ></textarea>
+    <mat-error *ngIf="message?.invalid">{{getErrorMessage()}}</mat-error>
+  </mat-form-field>
+  <button mat-button color="primary" type="submit" [disabled]="!contactForm.valid">
+    <mat-icon >{{ contactForm.valid ? "check" : "block" }}</mat-icon>
+    <span>Submit</span>
+  </button>
+</form>
+

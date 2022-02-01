@@ -7,96 +7,7 @@
       class="items-wrapper"
       #wrapper
     >
-      <div id="academic-timeline" class="item">
-        <div class="bg"></div>
-        <h1>Academic background</h1>
-        <div
-          class="card"
-        >
-          <mat-card class="skills-card">
 
-            <mat-stepper orientation="vertical" #stepper>
-              <mat-step state="university">
-                <ng-template matStepLabel>
-                  2006 UCL - Catholic university of Louvain
-                </ng-template>
-                <ng-template matStepContent>
-                  <p>
-                    Catholic University of Louvain.
-                    My study was a Bachelor in Economic sciences and management
-                  </p>
-                  <button mat-button matStepperNext>Next</button>
-                </ng-template>
-              </mat-step>
-              <mat-step state="university">
-                <ng-template matStepLabel>
-                  2010 EPHEC - Brussels/Bruxelles
-                </ng-template>
-                <ng-template matStepContent>
-                  <p>
-                    EPHEC is a higher education institute based in Brussels.
-                    My academic study was in International Business.
-                  </p>
-                  <div>
-                    <button mat-button matStepperPrevious>Back</button>
-                    <button mat-button matStepperNext>Next</button>
-                  </div>
-                </ng-template>
-
-              </mat-step>
-              <mat-step state="graduation">
-                <ng-template matStepLabel>
-                  2016 Saint-Laurent's instute - Luik/Liége
-                </ng-template>
-                <ng-template matStepContent>
-                  <p>
-                    <a href="https://www.isl.be/institut/qui-nous-sommes/">Saint-Laurent's higher education institute</a> is based in Luik/Liége in the eastern Belgium.
-                    I've finished a Bachelor in Web Development
-                  </p>
-                  <div>
-                    <button mat-button matStepperPrevious>Back</button>
-                    <button mat-button matStepperNext>Next</button>
-                  </div>
-                </ng-template>
-
-              </mat-step>
-              <mat-step label="IPEPS - Verviers" state="university">
-                <ng-template matStepLabel>
-                   2019 IPEPS - Verviers
-                </ng-template>
-                <ng-template matStepContent>
-                  <p>
-                    <a href="">IPEPS</a> institute is based in Verviers in the eastern Belgium.
-                    I've started a Bachelor in computer science and management
-                  </p>
-                  <div>
-                    <button mat-button matStepperPrevious>Back</button>
-                    <button mat-button (click)="stepper.reset()">Reset</button>
-                  </div>
-                </ng-template>
-
-              </mat-step>
-              <!-- Icon overrides. -->
-              <ng-template matStepperIcon="university">
-                <fa-icon [icon]="icons.university"></fa-icon>
-              </ng-template>
-              <ng-template matStepperIcon="graduation">
-                <fa-icon [icon]="icons.graduation"></fa-icon>
-              </ng-template>
-            </mat-stepper>
-
-          </mat-card>
-        </div>
-        <button
-          mat-button
-          color="primary"
-          class="show-more"
-          (click)="see_more(1)"
-        >
-          <mat-icon>expand_more</mat-icon>
-          See more
-        </button>
-      </div>
       <div id="backend-skills" class="item">
         <div class="bg"></div>
         <h1>Back-end skills</h1>
@@ -161,11 +72,12 @@
             </mat-card-content>
           </mat-card>
         </div>
+
         <button
           mat-button
           class="show-more"
           color="primary"
-          (click)="see_more(2)"
+          (click)="see_more(1)"
         >
           <mat-icon>expand_more</mat-icon>
           See more
@@ -176,6 +88,7 @@
         >
           <mat-icon>expand_less</mat-icon>
         </button>
+
       </div>
       <div id="frontend-skills" class="item">
         <div class="bg"></div>
@@ -227,7 +140,7 @@
         <button
           mat-button
           class="show-more"
-          (click)="see_more(3)"
+          (click)="see_more(2)"
         >
           <mat-icon>expand_more</mat-icon>
           See more
@@ -268,7 +181,7 @@
                   <mat-chip color="primary" selected>Agile</mat-chip>
                   <mat-chip color="primary" selected>SOLID</mat-chip>
                   <mat-chip color="primary" selected>Test-driven development</mat-chip>
-                  <mat-chip color="accent" selected>Firebase</mat-chip>
+                  <mat-chip color="accent" selected>SEO - Search Engine Optimization</mat-chip>
                 </mat-chip-list>
 
               </mat-card-content>
@@ -287,11 +200,98 @@
         <button
           mat-button
           class="show-more"
-          (click)="see_more(0)"
+          (click)="see_more(3)"
         >
           <mat-icon>expand_more</mat-icon>
           See more
         </button>
+        <button
+          class="go-top-button"
+          (click)="see_more(0)"
+        >
+          <mat-icon>expand_less</mat-icon>
+        </button>
+      </div>
+      <div id="academic-timeline" class="item">
+        <div class="bg"></div>
+        <h1>Academic background</h1>
+        <div
+          class="card"
+        >
+          <mat-card class="skills-card">
+
+            <mat-stepper orientation="vertical" #stepper>
+              <mat-step state="university">
+                <ng-template matStepLabel>
+                  2006 UCL - Catholic university of Louvain
+                </ng-template>
+                <ng-template matStepContent>
+                  <p>
+                    Catholic University of Louvain.
+                    My study was a Bachelor in Economic sciences and management
+                  </p>
+                  <button mat-button matStepperNext>Next</button>
+                </ng-template>
+              </mat-step>
+              <mat-step state="university">
+                <ng-template matStepLabel>
+                  2010 EPHEC - Brussels/Bruxelles
+                </ng-template>
+                <ng-template matStepContent>
+                  <p>
+                    EPHEC is a higher education institute based in Brussels.
+                    My academic study was in International Business.
+                  </p>
+                  <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button>
+                  </div>
+                </ng-template>
+
+              </mat-step>
+              <mat-step state="graduation">
+                <ng-template matStepLabel>
+                  2016 Saint-Laurent's instute - Luik/Liége
+                </ng-template>
+                <ng-template matStepContent>
+                  <p>
+                    <a href="https://www.isl.be/institut/qui-nous-sommes/">Saint-Laurent's higher education institute</a> is based in Luik/Liége in the eastern Belgium.
+                    I've finished a Bachelor in Web Development
+                  </p>
+                  <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button>
+                  </div>
+                </ng-template>
+
+              </mat-step>
+              <mat-step mat-step-label-active label="IPEPS - Verviers" state="university">
+                <ng-template matStepLabel>
+                  2019 IPEPS - Verviers
+                </ng-template>
+                <ng-template matStepContent>
+                  <p>
+                    <a href="">IPEPS</a> institute is based in Verviers in the eastern Belgium.
+                    I've started a Bachelor in computer science and management
+                  </p>
+                  <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button (click)="stepper.reset()">Reset</button>
+                  </div>
+                </ng-template>
+
+              </mat-step>
+              <!-- Icon overrides. -->
+              <ng-template matStepperIcon="university">
+                <fa-icon [icon]="icons.university"></fa-icon>
+              </ng-template>
+              <ng-template matStepperIcon="graduation">
+                <fa-icon [icon]="icons.graduation"></fa-icon>
+              </ng-template>
+            </mat-stepper>
+
+          </mat-card>
+        </div>
         <button
           class="go-top-button"
           (click)="see_more(0)"

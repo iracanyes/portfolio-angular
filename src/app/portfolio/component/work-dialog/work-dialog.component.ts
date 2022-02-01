@@ -17,9 +17,21 @@ export class WorkDialogComponent implements OnInit {
 
   openDialog(): void{
     const dialogRef = this.dialog.open(WorkDialogCardComponent, {
-      width: '400px',
+      width: '600px',
+      height: '50vh',
+      position: {
+        top: "10%"
+      },
       data: this.item.data,
+
     });
+    // update position of the modal after opening
+    //dialogRef.updatePosition({ top: '200px' });
+
+    // Remove the scrollblock added by mat-dialog as it cause the background added programmatically to go top
+    document.documentElement.classList.remove("cdk-global-scrollblock");
+
+    //
 
     dialogRef.afterClosed().subscribe(result => {
       // animation on close

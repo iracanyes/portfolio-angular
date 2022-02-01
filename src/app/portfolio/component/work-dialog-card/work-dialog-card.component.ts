@@ -26,6 +26,7 @@ export class WorkDialogCardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
   }
 
 }
