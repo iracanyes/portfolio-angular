@@ -1,0 +1,32 @@
+mat-card{
+  display: flex;
+  flex-direction: row;
+  width: 500px;
+  background: transparent;
+
+  div.card-avatar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 1rem;
+
+    img{
+      height: 100px;
+      width: 100px;
+    }
+  }
+
+  mat-card-header{
+    mat-card-title{
+      font-family: "SF Pro Display Bold";
+    }
+    mat-card-subtitle{
+      font-family: "Outfit";
+    }
+  }
+
+  mat-card-content{
+    padding-left: 1rem;
+  }
+}

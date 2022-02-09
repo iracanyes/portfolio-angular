@@ -1,0 +1,91 @@
+<div id="workpage">
+  <header>
+    <portfolio-header></portfolio-header>
+  </header>
+  <main #wrapper>
+    <section>
+      <div class="bg"></div>
+      <h1>Mobile cross-platform application</h1>
+      <div
+        class="card"
+      >
+        <mat-card class="skills-card">
+          <mat-card-content>
+            <portfolio-work-dialog *ngFor="let item of workMobileData" [item]="item"></portfolio-work-dialog>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <button
+        mat-button
+        class="show-more"
+        (click)="see_more(1)"
+      >
+        <mat-icon>expand_more</mat-icon>
+        See more
+      </button>
+
+    </section>
+    <section>
+      <div class="bg"></div>
+      <h1>Front-end works & websites</h1>
+      <div
+        class="card"
+      >
+        <mat-card class="skills-card">
+          <mat-card-content>
+            <portfolio-work-dialog *ngFor="let item of workFrontendData" [item]="item"></portfolio-work-dialog>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <button
+        mat-button
+        class="show-more"
+        (click)="see_more(2)"
+      >
+        <mat-icon>expand_more</mat-icon>
+        See more
+      </button>
+      <button
+        class="go-top-button"
+        (click)="see_more(0)"
+        matTooltip="Go top"
+      >
+        <mat-icon class="material-icons-outlined">navigation</mat-icon>
+      </button>
+    </section>
+    <section>
+      <div class="bg"></div>
+      <h1>Back-end works</h1>
+      <div
+        class="card"
+        fadeInAnimation
+        [duration]="1"
+        [delay]="1"
+      >
+        <mat-card class="skills-card">
+          <mat-card-content>
+            <portfolio-work-dialog *ngFor="let item of workBackendData" [item]="item"></portfolio-work-dialog>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <!--
+        <button
+          mat-button
+          class="show-more"
+          (click)="see_more(3)"
+        >
+          <mat-icon>expand_more</mat-icon>
+          See more
+        </button>
+      -->
+
+      <button
+        class="go-top-button"
+        (click)="see_more(0)"
+        matTooltip="Go top!"
+      >
+        <mat-icon class="material-icons-outlined">navigation</mat-icon>
+      </button>
+    </section>
+  </main>
+</div>

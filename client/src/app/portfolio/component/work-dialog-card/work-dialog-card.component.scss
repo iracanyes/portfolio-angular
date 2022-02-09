@@ -1,0 +1,56 @@
+
+
+.header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  mat-icon{
+    font-size: 32px;
+  }
+
+  h1{
+    font-family: "SF Pro Display Bold", Roboto;
+  }
+}
+
+
+.content{
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+
+
+
+  .images{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    .img-container{
+      display: flex;
+      width: 100px;
+      height: 200px;
+      &:nth-of-type(2){
+        display: flex;
+        width: 110px;
+        height: 220px;
+        img{
+          width: 110px;
+          height: 220px;
+        }
+      }
+    }
+
+  }
+  img{
+    width: 100px;
+    height: 200px;
+  }
+
+  p{
+    color: #000405;
+    font-family: "SF Pro Display Regular", Roboto;
+    font-size: 18px;
+  }
+}

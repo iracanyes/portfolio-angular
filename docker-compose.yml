@@ -1,0 +1,101 @@
+version: '3.7'
+services:
+  api:
+    container_name: portfolio_api
+    hostname: backend
+    image: iracanyes/portfolio_api
+    build:
+      context: ./api
+      dockerfile: Dockerfile.dev
+    env_file:
+      - ./api/.env.local
+    #restart: always
+    depends_on:
+      - database
+    volumes:
+      - ./api:/usr/local/app:rw,cached
+    #  - ./pi/node_modules:/usr/local/app/node_modules
+    links:
+      - database
+    networks:
+      - backend
+      - frontend
+    ports:
+      - "8081:3000"
+      - "8443:8443"
+  client:
+    container_name: portfolio_client
+    image: iracanyes/portfolio_client
+    build:
+      context: ./client
+      dockerfile: Dockerfile.dev
+    #restart: always
+    volumes:
+      - ./client:/usr/local/app:rw,cached
+      - ./client/node_modules:/usr/local/app/node_modules
+      - ./client/docker/nginx/nginx-default.conf:/etc/nginx/nginx.conf:ro
+      - ./client/docker/nginx/conf.d/:/etc/nginx/conf.d/:ro
+    networks:
+      - frontend
+    links:
+      - api
+    depends_on:
+      - api
+    ports:
+      - "80:80"
+      - "443:443"
+  database:
+    image: mongo:latest
+    # Hostname of this container
+    hostname: database
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGODB_ROOT_USERNAME:?MONGODB_ROOT_USERNAME is not set}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGODB_ROOT_PASSWORD:?MONGODB_ROOT_PASSWORD is not set}
+      # Create a new database.
+      # /docker-entrypoint-initdb.d/init.js has to be executed
+      MONGO_INITDB_DATABASE: ${MONGODB_DB_ADMIN_NAME:?MONGODB_DB_ADMIN_NAME is not set}
+      MONGODB_NON_ROOT_USERNAME: ${MONGODB_NON_ROOT_USERNAME:?MONGODB_NON_ROOT_USERNAME is not set}
+      MONGODB_NON_ROOT_PASSWORD: ${MONGODB_NON_ROOT_PASSWORD:?MONGODB_NON_ROOT_PASSWORD is not set}
+      MONGODB_NON_ROOT_ROLE: ${MONGODB_NON_ROOT_ROLE:?MONGODB_NON_ROOT_ROLE is not set}
+    volumes:
+      # Initialization script
+      - ./db/init.js:/docker-entrypoint-initdb.d/init.js:ro
+      # Data files
+      - ./shared/data/db:/data/db
+      # Mongodb logs
+      - ./shared/data/logs/:/var/log/mongodb/
+    env_file:
+      - ./.env
+    networks:
+      - backend
+    ports:
+      - '27017-27019:27017-27019'
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - "8083:8081"
+    environment:
+      # ME_CONFIG_MONGODB_URL: ${MONGODB_DB_ADMIN_URL:?MONGODB_DB_ADMIN_URL is not set}
+      ME_CONFIG_MONGODB_ADMINUSERNAME: ${MONGODB_ROOT_USERNAME:?MONGODB_ROOT_USERNAME is not set}
+      ME_CONFIG_MONGODB_ADMINPASSWORD: ${MONGODB_ROOT_PASSWORD:?MONGODB_ROOT_PASSWORD is not set}
+      # MongoDB container name. Use comma delimited list of host names for replica sets.
+      ME_CONFIG_MONGODB_SERVER: ${MONGODB_SERVER:?MONGODB_SERVER is not set}
+      ME_CONFIG_ENABLE_ADMIN: true
+      # mongo-express web username
+      ME_CONFIG_BASICAUTH_USERNAME: ${MONGODB_NON_ROOT_USERNAME:?MONGODB_NON_ROOT_USERNAME is not set}
+      # mongo-express web password
+      ME_CONFIG_BASICAUTH_PASSWORD: ${MONGODB_NON_ROOT_PASSWORD:?MONGODB_NON_ROOT_PASSWORD is not set}
+    env_file:
+      - ./.env
+    links:
+      - database
+    depends_on:
+      - database
+    networks:
+      - frontend
+      - backend
+networks:
+  frontend:
+  backend:

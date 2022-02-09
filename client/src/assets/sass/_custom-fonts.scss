@@ -1,0 +1,30 @@
+/**
+ * Add local fonts
+ */
+@font-face {
+  font-family: "SF Pro Text Regular";
+  /*
+   * local() => try to find local font if not
+   * url() fetch the local fonts
+   */
+  src: local("SF Pro Text Regular"), url("/assets/fonts/san-francisco-pro/SF-Pro-Text-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "SF Pro Display Regular";
+  src: local("SF Pro Display Regular"), url("/assets/fonts/san-francisco-pro/SF-Pro-Display-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "SF Pro Display Bold";
+  src: local("SF Pro Display Bold"), url("/assets/fonts/san-francisco-pro/SF-Pro-Display-Bold.otf") format("opentype");
+}
+
+/**
+ * Add Google fonts
+ */
+// Oxygen
+@import url('https://fonts.googleapis.com/css2?family=Oxygen&display=swap');
+
+// Original Surfer
+@import url('https://fonts.googleapis.com/css2?family=Original+Surfer&family=Outfit:wght@500&display=swap');
