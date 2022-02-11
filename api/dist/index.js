@@ -4,10 +4,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
+const path_1 = __importDefault(require("path"));
 const body_parser_1 = __importDefault(require("body-parser"));
+const helmet_1 = __importDefault(require("helmet"));
 const routes_1 = __importDefault(require("./routes"));
-const connect_1 = __importDefault(require("./connect"));
-const http_server_1 = __importDefault(require("./http_server"));
+const connect_1 = __importDefault(require("./config/connect"));
+const http_server_1 = __importDefault(require("./config/http_server"));
+const cors_1 = __importDefault(require("./config/cors"));
 require("dotenv/config");
 // Get port
 const port = process.env.PORT || 3000;
@@ -16,8 +19,12 @@ const app = (0, express_1.default)();
 (0, connect_1.default)();
 // Configure Http/Https server
 (0, http_server_1.default)(app);
+// Configure helmet
+app.use((0, helmet_1.default)());
+// Configure CORS
+(0, cors_1.default)(app);
 // Serve static files located in directory public
-app.use(express_1.default.static('public'));
+app.use(express_1.default.static(path_1.default.resolve('public')));
 // Parsers for POST data
 app.use(body_parser_1.default.json());
 app.use(body_parser_1.default.urlencoded({ extended: true }));
@@ -27,10 +34,3 @@ app.use("/", routes_1.default);
 app.use((req, res) => {
     res.status(404).send('Sorry, no route corresponding to request');
 });
-/* Start Express server
-app.listen(port, () => {
-    // tslint: disable-next-line:no-console
-    console.log(`Server started at http://localhost:${port}`);
-})
-
- */ 

@@ -5,6 +5,11 @@
     <mat-error *ngIf="email?.invalid">{{getErrorEmail()}}</mat-error>
   </mat-form-field>
   <mat-form-field appearance="fill">
+    <mat-label>Enter your name</mat-label>
+    <input matInput placeholder="Nom Prenom" formControlName="name">
+    <mat-error *ngIf="name?.invalid">{{getErrorName()}}</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
     <mat-label>Subject of this message</mat-label>
     <input matInput placeholder="50 reasons why?" formControlName="subject">
     <mat-error *ngIf="subject?.invalid">{{getErrorSubject()}}</mat-error>
@@ -22,7 +27,6 @@
     mat-button color="primary"
     type="submit"
     [disabled]="!contactForm.valid"
-    (click)="onSubmit()"
   >
     <mat-icon >{{ contactForm.valid ? "check" : "block" }}</mat-icon>
     <span>Submit</span>

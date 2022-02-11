@@ -1,3 +1,3 @@
-import sendMail from "./sendMail";
+import {mailerReady, sendMail} from "./sendMail";
 
-export default { sendMail };
+export default { sendMail, mailerReady };

@@ -1,6 +1,17 @@
 # Portfolio Website
 
+## Run app
+
+### Set environment variables for all images
+Copy from ```.env.dist``` to ``.env.local`` and set your environment variables
+````shell
+$ cp .env.dist .env
+$ cp ./api/.env.dist ./api/.env.local
+$ cp ./client/.env.dist ./client/.env.local
+````
+
 ## Docker
+
 ### Basic usage
 ````shell
 

@@ -1549,7 +1549,7 @@
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.ts",
+                "file": "src/environments/environment.local.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "object",
@@ -1732,12 +1732,12 @@
                     "defaultValue": "{\n  production: true\n}"
                 }
             ],
-            "src/environments/environment.ts": [
+            "src/environments/environment.local.ts": [
                 {
                     "name": "environment",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/environments/environment.ts",
+                    "file": "src/environments/environment.local.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "object",
@@ -2061,7 +2061,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/environments/environment.ts",
+                "filePath": "src/environments/environment.local.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",

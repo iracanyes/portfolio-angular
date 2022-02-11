@@ -15,6 +15,8 @@ services:
     volumes:
       - ./api:/usr/local/app:rw,cached
     #  - ./pi/node_modules:/usr/local/app/node_modules
+      - ./api/docker/nginx/nginx-default.conf:/etc/nginx/nginx.conf:ro
+      - ./api/docker/nginx/conf.d/:/etc/nginx/conf.d/:ro
     links:
       - database
     networks:
