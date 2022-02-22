@@ -14,4 +14,4 @@ COPY . /usr/local/app
 EXPOSE 3000
 
 # Serve app
-CMD ["npm", "start:dev"]
+CMD ["npm", "run","start:dev"]

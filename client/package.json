@@ -3,13 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "./node_modules/.bin/ng",
-    "start": "./node_modules/.bin/ng serve --host 0.0.0.0 --port 80",
+    "start:http": "./node_modules/.bin/ng serve --host 0.0.0.0 --port 8080 --poll=100",
+    "start": "./node_modules/.bin/ng serve --ssl --poll=100",
     "build": "./node_modules/.bin/ng build",
     "watch": "./node_modules/.bin/ng build --watch --configuration development",
     "test": "./node_modules/.bin/ng test",
-    "docs:json": "../node_modules/.bin/compodoc -p ./tsconfig.json -e json -d .",
-    "storybook": "npm run docs:json && start-storybook -p 6006 src/",
-    "build-storybook": "npm run docs:json && build-storybook"
+    "docs:json": "../node_modules/.bin/compodoc -p ./tsconfig.json -e json -d ."
   },
   "private": true,
   "dependencies": {
@@ -30,6 +29,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@types/angular-route": "^1.7.2",
     "gsap": "^3.8.0",
+    "js-string-escape": "^1.0.1",
     "ng-particles": "^2.20.5",
     "rxjs": "^7.4.0",
     "tslib": "^2.3.0",
@@ -47,6 +47,7 @@
     "@types/greensock": "^1.15.32",
     "@types/jasmine": "~3.10.0",
     "@types/jest": "^27.4.0",
+    "@types/js-string-escape": "^1.0.1",
     "@typescript-eslint/eslint-plugin": "^5.10.2",
     "@typescript-eslint/parser": "^5.11.0",
     "@webcomponents/custom-elements": "^1.5.0",

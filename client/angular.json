@@ -84,7 +84,11 @@
               "browserTarget": "portfolio:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "sslKey": "../docker/client/ssl/certs/server.key",
+            "sslCert": "../docker/client/ssl/certs/server.crt"
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",

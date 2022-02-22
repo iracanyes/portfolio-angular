@@ -2,8 +2,9 @@ import { Application } from "express";
 import mongoose from "mongoose";
 
 
-const Connect = () => {
+export default (() => {
   const connect = async () => {
+
     await mongoose
       .connect(
         // @ts-ignore
@@ -24,6 +25,5 @@ const Connect = () => {
   connect();
 
   mongoose.connection.on("disconnected", connect);
-};
+});
 
-export default Connect;

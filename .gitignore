@@ -5,6 +5,8 @@
 
 node_modules
 **/node_modules
+
+
 # shared data
 /shared
 
@@ -44,3 +46,6 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# Custom
+**/*.save

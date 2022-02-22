@@ -1,12 +1,16 @@
 import express, { Application, Request, Response, NextFunction}  from "express";
 import path  from "path";
 import bodyParser from "body-parser";
+import cookieParser from "cookie-parser";
 import helmet from "helmet";
 import router from "./routes";
 import Connect from "./config/connect";
 import HttpServer from "./config/http_server";
 import Cors from "./config/cors";
-import 'dotenv/config';
+import dotenv from "dotenv";
+
+// Environment variable file path
+dotenv.config({ path: ".env.local"});
 
 // Get port
 const port = process.env.PORT || 3000;
@@ -19,11 +23,18 @@ Connect();
 // Configure Http/Https server
 HttpServer(app);
 
+/*
+* Security
+* */
+
 // Configure helmet
 app.use(helmet());
 
 // Configure CORS
 Cors(app);
+
+// Cookie parser
+app.use(cookieParser());
 
 
 

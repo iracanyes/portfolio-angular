@@ -23,6 +23,8 @@
     ></textarea>
     <mat-error *ngIf="message?.invalid">{{getErrorMessage()}}</mat-error>
   </mat-form-field>
+  <!-- CSRF Protection -->
+  <input type="hidden" name="_csrf" value="{{ csrfToken }}">
   <button
     mat-button color="primary"
     type="submit"

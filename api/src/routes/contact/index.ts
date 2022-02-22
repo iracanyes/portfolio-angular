@@ -1,7 +1,11 @@
 import { Router, Request, Response } from "express";
 import ContactController from "../../controllers/Contact";
+import csurf from "csurf";
+import bodyParser from "body-parser";
 
 const router: Router = Router();
+const csrfProtection = csurf({ cookie: true });
+const parseForm = bodyParser.urlencoded({ extended: true });
 
 // One method on this route
 // router.get('/path', () => {})
@@ -21,7 +25,7 @@ router.route('/path')
 */
 
 router.route('/send_mail')
-  .get(ContactController.mailerReady)
-  .post(ContactController.sendMail);
+  .get(csrfProtection, ContactController.mailerReady)
+  .post(csrfProtection, ContactController.sendMail);
 
 export default router;

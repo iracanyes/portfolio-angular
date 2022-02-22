@@ -13,7 +13,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
-const Connect = () => {
+exports.default = (() => {
     const connect = () => __awaiter(void 0, void 0, void 0, function* () {
         yield mongoose_1.default
             .connect(
@@ -31,5 +31,4 @@ const Connect = () => {
     });
     connect();
     mongoose_1.default.connection.on("disconnected", connect);
-};
-exports.default = Connect;
+});
