@@ -20,26 +20,20 @@ import { ProgressBarComponent } from './widget/progress-bar/progress-bar.compone
 import { SkillsCardComponent } from './component/skills-card/skills-card.component';
 import { WorkComponent } from './page/work/work.component';
 import { MatStepperModule } from '@angular/material/stepper';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatRippleModule } from '@angular/material/core';
 import { WorkDialogComponent } from './component/work-dialog/work-dialog.component';
 import { WorkDialogCardComponent } from './component/work-dialog-card/work-dialog-card.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { ContactComponent } from './page/contact/contact.component';
-import { ContactFormComponent } from './component/contact-form/contact-form.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { MatInputModule } from '@angular/material/input';
-import { HttpClientModule } from '@angular/common/http';
+import {ContactModule} from "./page/contact/contact.module";
+
 
 const matModules = [
   MatCardModule,
   MatChipsModule,
   MatIconModule,
   MatButtonModule,
-  MatInputModule,
-  MatFormFieldModule,
   MatStepperModule,
   MatToolbarModule,
   MatRippleModule,
@@ -47,11 +41,11 @@ const matModules = [
   MatTooltipModule,
 ];
 
+
 @NgModule({
   declarations: [
     HomepageComponent,
     PageNotFoundComponent,
-    HeaderComponent,
     AboutComponent,
     SkillsComponent,
     HomeCardComponent,
@@ -60,8 +54,6 @@ const matModules = [
     WorkComponent,
     WorkDialogComponent,
     WorkDialogCardComponent,
-    ContactComponent,
-    ContactFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,10 +61,9 @@ const matModules = [
     RouterModule,
     FontAwesomeModule,
     NgParticlesModule,
-    ReactiveFormsModule,
-    HttpClientModule,
     ...matModules,
     DirectivesModule,
+    ContactModule,
     PortfolioRoutingModule,
   ],
   exports: [],

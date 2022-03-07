@@ -23,9 +23,11 @@ const sendMail = (req: Request, res: Response) => {
   console.log("sendMail controller request body", req.body);
   console.log("sendMail controller data", data);
 
-
+  // Send mail
   const mailer: Mailer = new Mailer();
   const response = mailer.sendMail(data);
+
+  // Save message
 
   return res.send({response});
 };

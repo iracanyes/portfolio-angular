@@ -1,9 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpErrorResponse } from "@angular/common/http";
 import { Environment } from "../../../../environments/environment.local";
 import jsStringEscape from "js-string-escape";
 import {ContactInitResponse, ContactMessage} from "../../../../types/types";
+import {MatRippleModule} from "@angular/material/core";
+
 
 @Component({
   selector: "app-contact-form",
@@ -11,6 +13,22 @@ import {ContactInitResponse, ContactMessage} from "../../../../types/types";
   styleUrls: ["./contact-form.component.scss"],
 })
 export class ContactFormComponent implements OnInit {
+  editorConf = {
+    base_url: '/assets/tinymce',
+    suffix: '.min',
+    height: 400,
+    menubar: true,
+    plugin: [
+      'advlist autolink lists link image charmap print preview anchor',
+      'searchreplace visualblocks code fullscreen',
+      'insertdatetime media table paste code help wordcount'
+    ],
+    toolbar:
+      'undo redo | formatselect | bold italic backcolor | \
+      alignleft aligncenter alignright alignjustify | \
+      bullist numlist outdent indent | removeformat | help'
+  };
+  // Form fields
   contactForm = new FormGroup({
     name: new FormControl("", [Validators.required]),
     email: new FormControl("", [Validators.email, Validators.required]),
@@ -104,11 +122,15 @@ export class ContactFormComponent implements OnInit {
     try {
       // eslint-disable-next-line no-console
       console.log("Value submitted", this.contactForm.value);
+
+      const headers = new HttpHeaders()
+        .set("CSRF-Token", this._crsfToken);
       // send request
       this.http
         .post(
           `${Environment.PORTFOLIO_API_URL}/contact/send_mail`,
-          data
+          {...data, _csrf: this._crsfToken},
+          {headers},
         )
         .subscribe({
           next: (data: any) => {

@@ -49,3 +49,7 @@ Thumbs.db
 
 # Custom
 **/*.save
+# Certificate
+**/*.key
+**/*.crt
+**/*.pem

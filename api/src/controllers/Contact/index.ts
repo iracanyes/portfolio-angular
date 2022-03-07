@@ -1,3 +1,4 @@
 import {mailerReady, sendMail} from "./sendMail";
+import createMessage from "./createMessage";
 
-export default { sendMail, mailerReady };
+export default { createMessage, sendMail, mailerReady };

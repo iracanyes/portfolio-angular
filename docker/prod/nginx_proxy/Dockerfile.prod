@@ -1,0 +1,7 @@
+FROM jwilder/nginx-proxy:latest
+
+COPY ./docker/prod/nginx_proxy/certs /etc/nginx/certs
+COPY ./docker/prod/nginx_proxy/vhost.d /etc/nginx/vhost.d
+COPY ./docker/prod/nginx_proxy/conf.d /etc/nginx/conf.d
+# allow to write http-01 challenge from acme-companion
+COPY ./docker/prod/nginx_proxy/html /usr/share/nginx/html

@@ -1,0 +1,32 @@
+FROM node:latest as build
+
+RUN mkdir -p /usr/local/app
+
+WORKDIR /usr/local/app
+
+COPY package*.json /usr/local/app
+
+# Install dependencies
+RUN npm install
+
+# Copy App files
+COPY . /usr/local/app
+
+# Build app
+RUN npm run build
+
+# Nginx Container
+######################
+# Use official image
+FROM nginx:latest
+
+# Copy build files to nginx default public access directory
+COPY --from=build /usr/local/app/dist/* /usr/share/nginx/html/
+
+# Expose HTTPS server port
+EXPOSE 80
+EXPOSE 8443
+
+# Check if app is running. If not, shutdown the container
+HEALTHCHECK --interval=2m --timeout=5s --start-period=2m \
+  CMD nc -z -w5 127.0.0.1 8443 || exit 1

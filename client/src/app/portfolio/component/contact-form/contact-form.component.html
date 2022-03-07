@@ -14,15 +14,15 @@
     <input matInput placeholder="50 reasons why?" formControlName="subject">
     <mat-error *ngIf="subject?.invalid">{{getErrorSubject()}}</mat-error>
   </mat-form-field>
-  <mat-form-field appearance="fill">
-    <mat-label>Enter your message</mat-label>
-    <textarea
-      matInput
-      placeholder="Hello world"
-      formControlName="message"
-    ></textarea>
-    <mat-error *ngIf="message?.invalid">{{getErrorMessage()}}</mat-error>
-  </mat-form-field>
+
+
+  <editor
+    [init]="editorConf"
+    initialValue="Hi,\n it will be pleasure to respond to as quickly as possible!"
+    outputFormat="text"
+    formControlName="message"
+  ></editor>
+
   <!-- CSRF Protection -->
   <input type="hidden" name="_csrf" value="{{ csrfToken }}">
   <button

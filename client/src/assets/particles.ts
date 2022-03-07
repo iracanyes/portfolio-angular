@@ -37,7 +37,7 @@ export const particlesOpt = {
   },
   "detectRetina": true,
   "duration": 0,
-  "fpsLimit": 60,
+  "fpsLimit": 30,
   "interactivity": {
     "detectsOn": InteractivityDetect.window,
     "events": {

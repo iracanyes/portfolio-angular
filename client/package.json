@@ -1,12 +1,12 @@
 {
-  "name": "portfolio",
+  "name": "portfolio_client",
   "version": "0.0.0",
   "scripts": {
     "ng": "./node_modules/.bin/ng",
     "start:http": "./node_modules/.bin/ng serve --host 0.0.0.0 --port 8080 --poll=100",
-    "start": "./node_modules/.bin/ng serve --ssl --poll=100",
+    "start": "node --max-old-space-size=12092 ./node_modules/@angular/cli/bin/ng serve --host 0.0.0.0 --port=4200 --poll=1500 --verbose",
     "build": "./node_modules/.bin/ng build",
-    "watch": "./node_modules/.bin/ng build --watch --configuration development",
+    "watch": "./node_modules/.bin/ng build --watch --configuration=\"development\"",
     "test": "./node_modules/.bin/ng test",
     "docs:json": "../node_modules/.bin/compodoc -p ./tsconfig.json -e json -d ."
   },
@@ -27,13 +27,15 @@
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
     "@fortawesome/free-regular-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@tinymce/tinymce-angular": "^5.0.1",
     "@types/angular-route": "^1.7.2",
     "gsap": "^3.8.0",
     "js-string-escape": "^1.0.1",
-    "ng-particles": "^2.20.5",
+    "ng-particles": "^2.41.6",
     "rxjs": "^7.4.0",
+    "tinymce": "^6.0.0",
     "tslib": "^2.3.0",
-    "tsparticles": "^1.37.5",
+    "tsparticles": "^1.41.6",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
@@ -44,6 +46,7 @@
     "@babel/core": "^7.16.0",
     "@compodoc/compodoc": "^1.1.15",
     "@types/angular": "^1.8.3",
+    "@types/angular-material": "^1.1.73",
     "@types/greensock": "^1.15.32",
     "@types/jasmine": "~3.10.0",
     "@types/jest": "^27.4.0",

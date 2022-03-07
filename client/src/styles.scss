@@ -1,6 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 @import "src/assets/sass/base-dir";
 @import "src/assets/sass/custom-fonts";
+@import "~tinymce/skins/ui/oxide/skin.min.css";
+@import "~tinymce/skins/ui/oxide/content.min.css";
+@import "~tinymce/skins/content/default/content.min.css";
+// Choose one of two theme
+//@import "~quill/dist/quill.snow.css";
+//@import "node_modules/quill/dist/quill.bubble.css";
+
 
 html, body, app-root { display: flex; flex: 1 1 auto; }
 router-outlet + * {

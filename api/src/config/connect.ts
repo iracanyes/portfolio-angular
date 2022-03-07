@@ -3,21 +3,14 @@ import mongoose from "mongoose";
 
 
 export default (() => {
-  const connect = async () => {
-
-    await mongoose
-      .connect(
-        // @ts-ignore
-        process.env.MONGODB_DB_AUTH_URL,
-        {
-          useUnifiedTopology: true,
-        }
-      )
+  const connect = ():void => {
+    mongoose
+      .connect(process.env.MONGODB_DB_AUTH_URL as string)
       .then( ()=> {
-        return console.log(`Successfully connect to ${ process.env.MONGODB_DB_URL }`);
+        return console.log(`Successfully connect to ${ process.env.MONGODB_DB_URL as string}`);
       })
       .catch( e => {
-        console.error(`Error connect to ${ process.env.MONGODB_DB_URL }!\n`, e);
+        console.error(`Error connect to ${ process.env.MONGODB_DB_URL as string}!\n`, e);
         return process.exit(1);
       })
   };

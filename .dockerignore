@@ -1,0 +1,13 @@
+node_modules/
+# logs
+logs/
+# Git and cache directory
+.git
+.cache
+
+# Info files
+*.md
+
+.env$
+.env.local
+.env.prod

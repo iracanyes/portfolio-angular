@@ -1,43 +1,46 @@
 @import "~src/assets/sass/variables";
 
+div#contact-page{
+  width: 100%;
+}
 header{
-  position: absolute;
-  top: 0;
   display: flex;
   width: 100%;
 
   portfolio-header{
     flex: 1 1 auto;
     z-index: 10;
+    background: rgba(50,49,80,0.9);
+
   }
 }
 
 main{
-  width: 100%;
-  height: 100vh;
+  display: flex;
+  flex: 1 1 auto;
   //overflow-y: scroll;
+  background: $blue-darker2;
+  //margin-top: 100px;
 }
 
 section {
-  position: relative;
   height: 100vh;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   //color: white;
-  background: $red-darker;
 
   h1 {
-    position: absolute;
-    top: 5rem;
-    left: auto;
-    right: auto;
     font-family: "Original Surfer", Roboto, "Helvetica Neue", sans-serif;
     font-size: 2rem;
     text-shadow: 1px 1px 3px black;
     font-weight: 400;
+    z-index: 1;
   }
 
-
+  app-contact-form{
+    margin-bottom: 50px;
+  }
 }

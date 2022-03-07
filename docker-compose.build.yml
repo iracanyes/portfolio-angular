@@ -1,0 +1,38 @@
+version: '3.7'
+services:
+  api:
+    container_name: portfolio_api
+    hostname: backend
+    #
+    image: iracanyes/portfolio_api
+    restart: always
+    build:
+      context: ./api
+      # relative path from build context directory to Dockerfile
+      dockerfile: ../docker/dev/api/Dockerfile.build
+    env_file:
+      - ./api/.env.local
+    #restart: always
+    #depends_on:
+    #  - database
+    volumes:
+      - ./api:/usr/local/app:rw,cached
+      - ./api/node_modules:/usr/local/app/node_modules
+      - ./docker/prod/api/nginx/nginx-default.conf:/etc/nginx/nginx.conf:ro
+      - ./docker/prod/api/nginx/conf.d/:/etc/nginx/conf.d/:ro
+  client:
+    container_name: portfolio_client
+    # Name of the image to pull
+    image: iracanyes/portfolio_client
+    restart: always
+    build:
+      context: ./client
+      dockerfile: ../docker/dev/client/Dockerfile.build
+    #restart: always
+    volumes:
+      - ./client:/usr/local/app:rw,cached
+      - ./client/node_modules:/usr/local/app/node_modules
+      - ./docker/prod/client/nginx/nginx-default.conf:/etc/nginx/nginx.conf:ro
+      - ./docker/prod/client/nginx/conf.d/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - api

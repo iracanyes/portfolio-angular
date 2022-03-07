@@ -1,0 +1,49 @@
+
+# Create image base on the official Node 10 from dockerhub
+FROM node:latest as build
+# Create app directory in docker container
+RUN mkdir -p /usr/local/app
+
+# Change directory to run commands in it
+WORKDIR /usr/local/app
+
+# Copy dependency definitions
+COPY package*.json /usr/local/app/
+
+
+# Install dependencies
+RUN npm install
+
+# Install angular-cli
+RUN npm i -g "@angular/cli@latest"
+
+# Copy all the code
+COPY . /usr/local/app/
+
+
+# Build angular app
+# Uncomment for production build
+RUN npm run build
+
+# Nginx - Serve the app - Production environment
+########################
+
+# Use official nginx image as the base image
+FROM nginx:latest
+
+# Copy the build output to replace default nginx site
+COPY --from=build /usr/local/app/dist/portfolio /usr/share/nginx/html
+
+
+# This container opened ports
+EXPOSE 80
+
+
+# Check if app is running. If not, shutdown the container
+HEALTHCHECK --interval=2m --timeout=5s --start-period=2m \
+  CMD nc -z -w5 127.0.0.1 8443 || exit 1
+
+
+
+
+

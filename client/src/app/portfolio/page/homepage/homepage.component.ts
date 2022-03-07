@@ -17,15 +17,20 @@ export class HomepageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  particlesLoaded(container: Container){
+  particlesLoaded(container: Container): void
+  {
     console.log("ngParticles loaded", container);
   }
 
-  particlesInit(main: Main): void{
-    console.log("particlesInit", main);
+  particlesInit(main: Main): Promise<void>
+  {
+
     /* Starting from 1.19.0 you can add custom presets or shape here,
      * using the current tsParticles instance (main)
      */
+    return new Promise(() => {
+      console.log("particlesInit", main);
+    });
   }
 
 
