@@ -83,7 +83,7 @@ export const workMobileData = [
     data: {
       title: "Blog - Twitter like app",
       repository: "https://github.com/iracanyes/twitterclone",
-      content: "This exercise is the first of 4 exercise made for learning cross-mobile developpement.\n It allowed me to learn media management and realtime database on mobile application.",
+      content: "This exercise is the first of 4 exercise made for learning cross-mobile development.\n It allowed me to learn media management and realtime database on mobile application.",
       images: [
         {
           src: "/assets/img/projets/mobile/twitterclone/homepage_dark-theme.jpg",
