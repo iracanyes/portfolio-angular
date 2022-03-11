@@ -1,11 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { HttpClient, HttpHeaders, HttpErrorResponse } from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpErrorResponse, HttpResponse} from "@angular/common/http";
 import { Environment } from "../../../../environments/environment.local";
 import jsStringEscape from "js-string-escape";
-import {ContactInitResponse, ContactMessage} from "../../../../types/types";
-import {MatRippleModule} from "@angular/material/core";
-
+import {ContactMessage} from "../../../../types/types";
+import escapeHtml from "escape-html";
 
 @Component({
   selector: "app-contact-form",
@@ -43,12 +42,14 @@ export class ContactFormComponent implements OnInit {
   // eslint-disable-next-line no-empty-function
   ngOnInit(): void {
     this.http
-      .get(`${Environment.PORTFOLIO_API_URL}/contact/send_mail`)
+      .get(`${Environment.PORTFOLIO_API_URL}/contact/send_mail`, { observe: 'response'})
       .subscribe({
-        next: (data: Partial<ContactInitResponse>) => {
+        next: (data: HttpResponse<Object>) => {
           console.log("Contact Init - response", data);
           if(data){
-            this._crsfToken = <string> data?._csrf;
+            data.headers.keys().map(key => console.log(`${key} : ${data.headers.get(key)}`));
+            //const headers = data.headers.get('');
+            //this._crsfToken = <string> data?.headers.cookie.split("=")[1];
           }
 
         },
@@ -110,41 +111,55 @@ export class ContactFormComponent implements OnInit {
       name: jsStringEscape(data.name),
       email: jsStringEscape(data.email),
       subject: jsStringEscape(data.subject),
-      message: jsStringEscape(data.message)
+      message: escapeHtml(data.message)
     };
   }
 
   onSubmit() {
     // eslint-disable-next-line no-console
-    console.log("Value submitted", this.contactForm.value);
+    console.log("Value submitted\n", this.contactForm.value);
     const data = this.sanitize(this.contactForm.value);
 
     try {
       // eslint-disable-next-line no-console
-      console.log("Value submitted", this.contactForm.value);
+      console.log("Value submitted after sanitize\n", data);
+      //console.log("this._crsfToken\n", this._crsfToken);
 
-      const headers = new HttpHeaders()
-        .set("CSRF-Token", this._crsfToken);
-      // send request
-      this.http
-        .post(
-          `${Environment.PORTFOLIO_API_URL}/contact/send_mail`,
-          {...data, _csrf: this._crsfToken},
-          {headers},
-        )
-        .subscribe({
-          next: (data: any) => {
-            // eslint-disable-next-line no-console
-            console.log("Success!\n", data);
-          },
-          error: (error: HttpErrorResponse) => {
-            // eslint-disable-next-line no-console
-            console.error(
-              `Error while sending data to url: ${Environment.PORTFOLIO_API_URL}/contact/send_mail\n`,
-              error
-            );
-          },
-        });
+
+      if(true){
+        console.log("this._crsfToken\n", this._crsfToken);
+
+        /* Create headers
+        const headers = new HttpHeaders()
+          .set("XSRF-Token", this._crsfToken);
+
+         */
+
+        // send request
+        this.http
+          .post(
+            `${Environment.PORTFOLIO_API_URL}/contact/send_mail`,
+            {...data, _csrf: this._crsfToken},
+            {
+              withCredentials: true,
+              // headers
+            },
+          )
+          .subscribe({
+            next: (data: any) => {
+              // eslint-disable-next-line no-console
+              console.log("Success!\n", data);
+            },
+            error: (error: HttpErrorResponse) => {
+              // eslint-disable-next-line no-console
+              console.error(
+                `Error while sending data to url: ${Environment.PORTFOLIO_API_URL}/contact/send_mail\n`,
+                error
+              );
+            },
+          });
+      }
+
     } catch (e) {
       // eslint-disable-next-line no-console
       console.error("Error sending mail", e);

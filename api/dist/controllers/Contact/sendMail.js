@@ -12,9 +12,10 @@ const mailerReady = (req, res, next) => {
     const data = req.body;
     console.log("sendMail controller data", data);
     const response = {
-        message: "GET - Send mail ready!",
+        message: "Hello, ready to hear from you!",
     };
-    return res.send(Object.assign(Object.assign({}, response), { csrfToken: req.csrfToken() }));
+    res.cookie('XSRF-Token', req.csrfToken());
+    return res.send(Object.assign({}, response));
 };
 exports.mailerReady = mailerReady;
 const sendMail = (req, res) => {

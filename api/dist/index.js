@@ -13,6 +13,7 @@ const connect_1 = __importDefault(require("./config/connect"));
 const http_server_1 = __importDefault(require("./config/http_server"));
 const cors_1 = __importDefault(require("./config/cors"));
 const dotenv_1 = __importDefault(require("dotenv"));
+const session_1 = __importDefault(require("./config/session"));
 // Environment variable file path
 dotenv_1.default.config({ path: ".env.local" });
 // Get port
@@ -31,6 +32,7 @@ app.use((0, helmet_1.default)());
 (0, cors_1.default)(app);
 // Cookie parser
 app.use((0, cookie_parser_1.default)());
+(0, session_1.default)(app);
 // Serve static files located in directory public
 app.use(express_1.default.static(path_1.default.resolve('public')));
 // Parsers for POST data

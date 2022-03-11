@@ -6,5 +6,5 @@ export type ContactMessage = {
 }
 
 export type ContactInitResponse = {
-  _csrf: string;
+  csrfToken: string;
 }

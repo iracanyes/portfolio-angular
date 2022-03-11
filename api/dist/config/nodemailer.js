@@ -33,7 +33,7 @@ class Mailer {
                 from: `${data.username} <${data.email}>`,
                 to: "iracanyes@gmail.com, k.iracanye@gmail.com",
                 subject: data.subject,
-                text: data.message
+                html: data.message
             });
             return {
                 statusCode: 200,

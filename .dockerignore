@@ -1,3 +1,4 @@
+.idea/
 node_modules/
 # logs
 logs/
@@ -10,4 +11,4 @@ logs/
 
 .env$
 .env.local
-.env.prod
+.env.prod/api/.idea/

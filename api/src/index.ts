@@ -8,6 +8,9 @@ import Connect from "./config/connect";
 import HttpServer from "./config/http_server";
 import Cors from "./config/cors";
 import dotenv from "dotenv";
+import MySession from "./config/session";
+import {Csurf} from "./config/csurf";
+import {RateLimiter} from "./config/rate_limiter";
 
 // Environment variable file path
 dotenv.config({ path: ".env.local"});
@@ -26,17 +29,25 @@ HttpServer(app);
 /*
 * Security
 * */
+/*
+ * app.set('trust proxy', numberOfProxies)
+ * Where numberOfProxies is the number of proxies between the user and the server.
+ */
+app.set('trust proxy', 1);
 
-// Configure helmet
+// Configure helmet security
 app.use(helmet());
 
 // Configure CORS
 Cors(app);
 
 // Cookie parser
-app.use(cookieParser());
+app.use(cookieParser(process.env.SESSION_SECRET));
 
-
+// Session
+MySession(app);
+// Rate limiter
+RateLimiter(app);
 
 // Serve static files located in directory public
 app.use(express.static(path.resolve('public')));
@@ -45,8 +56,11 @@ app.use(express.static(path.resolve('public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// CSRF Token
+Csurf(app, router);
 // Set api routes
 app.use("/", router);
+
 
 // Change error 404 message modifing the middleware
 app.use((req: Request, res:Response ) =>{

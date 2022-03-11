@@ -3,7 +3,7 @@ import { ContactComponent } from "./contact.component";
 import { ContactFormComponent} from "../../component/contact-form/contact-form.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {EditorModule, TINYMCE_SCRIPT_SRC} from '@tinymce/tinymce-angular';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule, HttpClientXsrfModule, HttpXsrfTokenExtractor} from '@angular/common/http';
 import {BrowserModule} from "@angular/platform-browser";
 import {RouterModule} from "@angular/router";
 import {ContactRoutingModule} from "./contact.routing.module";
@@ -16,6 +16,8 @@ import {HeaderComponent} from "../../navigation/header/header.component";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {DirectivesModule} from "../../../directives/directives.module";
 import {MatRippleModule} from "@angular/material/core";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {HttpCsrfInterceptor} from "../../../service/HttpCsrfInterceptor";
 
 
 const matModules = [
@@ -36,10 +38,15 @@ const matModules = [
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    HttpClientXsrfModule.withOptions({
+      cookieName: 'XSRF-TOKEN',
+      headerName: 'X-XSRF-TOKEN'
+    }),
     EditorModule,
     ...matModules,
     DirectivesModule,
@@ -49,7 +56,15 @@ const matModules = [
     HeaderComponent
   ],
   providers: [
-    { provide: TINYMCE_SCRIPT_SRC, useValue: "assets/tinymce/tinymce.min.js" }
+    {
+      provide: TINYMCE_SCRIPT_SRC,
+      useValue: "assets/tinymce/tinymce.min.js"
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpCsrfInterceptor,
+      multi: true
+    },
   ]
 })
 export class ContactModule {}

@@ -21,9 +21,9 @@ class Mailer{
   public async sendMail(data: MailInputProps){
     const res = await this.transporter.sendMail({
       from: `${data.username} <${data.email}>`,
-      to: "iracanyes@gmail.com, k.iracanye@gmail.com",
+      to: process.env.CONTACT_EMAIL,
       subject: data.subject,
-      text: data.message
+      html: data.message
     });
 
     return {

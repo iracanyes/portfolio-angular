@@ -6,10 +6,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const cors_1 = __importDefault(require("cors"));
 exports.default = (app) => {
     // Configure CORS
+    const { CORS_ALLOW_ORIGIN, CORS_METHODS, CORS_ALLOWED_HEADERS, } = process.env;
     app.use((0, cors_1.default)({
-        origin: new RegExp(String(process.env.CORS_ALLOW_ORIGIN), "i"),
-        methods: process.env.CORS_METHODS,
-        allowedHeaders: ['Access-Control-Allow-Origin', 'Content-Type', 'Authorization'],
+        origin: new RegExp(String(CORS_ALLOW_ORIGIN), "i"),
+        methods: CORS_METHODS,
+        allowedHeaders: CORS_ALLOWED_HEADERS ? CORS_ALLOWED_HEADERS.split(',') : '',
         optionsSuccessStatus: 200
     }));
 };

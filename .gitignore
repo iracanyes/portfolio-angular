@@ -3,6 +3,9 @@
 .env.dev
 .env.prod
 
+**/*.pem
+**/*.cert
+**/*.key
 node_modules
 **/node_modules
 
@@ -16,7 +19,8 @@ node_modules
 /out-tsc
 
 # IDEs and editors
-/.idea
+.idea/
+**/.idea/
 .project
 .classpath
 .c9/
@@ -52,4 +56,5 @@ Thumbs.db
 # Certificate
 **/*.key
 **/*.crt
-**/*.pem
+**/*.pem!
+/api/.idea/
