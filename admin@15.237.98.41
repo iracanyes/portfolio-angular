@@ -1,0 +1,37 @@
+API_IMAGE=iracanyes/portfolio-api
+API_VIRTUAL_HOST=api.iracanyes.com,www.api.iracanyes.com
+API_VIRTUAL_PORT=443
+API_DEFAULT_HOST=api.iracanyes.com
+CLIENT_IMAGE=iracanyes/portfolio-client
+CLIENT_VIRTUAL_HOST=iracanyes.com,www.iracanyes.com
+CLIENT_VIRTUAL_PORT=443
+CLIENT_DEFAULT_HOST=iracanyes.com
+DATABASE_IMAGE=mongo
+## API container
+# Express Server
+PORT=80
+
+### Database container
+# MongoDB - Mongo-Express - Database info
+# MongoDB container name.
+MONGODB_SERVER=database
+# Unused
+MONGODB_DB_ADMIN_URL=mongodb://iracanyes:Km5cuZ4QoC6AmDgH@database:27017/portfolio?authSource=admin
+MONGODB_DB_URL=mongodb://prtf_iracanyes:Ft14gXBeG58Mw2Qpzc@database:27017/portfolio?authSource=admin
+MONGODB_DB_NAME=portfolio
+MONGODB_DB_ADMIN_NAME=admin
+# Root user can manage MongoDB instance
+MONGODB_ROOT_USERNAME=iracanyes
+MONGODB_ROOT_PASSWORD=Km5cuZ4QoC6AmDgH
+# User with no root privileges on instance
+MONGODB_NON_ROOT_USERNAME=prtf_iracanyes
+MONGODB_NON_ROOT_PASSWORD=Ft14gXBeG58Mw2Qpzc
+MONGODB_NON_ROOT_ROLE=readWrite
+
+# Mongo-Express configs
+# https://hub.docker.com/_/mongo-express
+#  Maximum payload size.
+# CRUD operations above this size will fail in [body-parser](https://www.npmjs.com/package/body-parser).
+ME_CONFIG_REQUEST_SIZE=100kb
+# String used by [cookie-parser middleware](https://www.npmjs.com/package/cookie-parser) to sign cookies.
+ME_CONFIG_SITE_COOKIESECRET='B94D27B9934D3E08A52E52D7DA7DABFAC484EFE37A5380EE9088F7ACE2EFCDE9'
