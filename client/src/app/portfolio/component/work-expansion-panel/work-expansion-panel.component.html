@@ -1,0 +1,61 @@
+<mat-accordion
+  class="example-headers-align"
+  multi
+>
+  <mat-expansion-panel
+    *ngFor="let item of workMobileData; index as index;"
+    [expanded]="step === index"
+    (opened)="setStep(index)"
+    hideToggle
+  >
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{ item.data.title }}
+      </mat-panel-title>
+      <mat-panel-description>
+        <span>
+          {{ item.data.subtitle }}
+        </span>
+        <!--
+        <mat-icon>account_circle</mat-icon>
+        -->
+      </mat-panel-description>
+      <!--
+      <mat-action-row>
+        <button mat-button color="primary" (click)="nextStep(index)">Next</button>
+      </mat-action-row>
+      -->
+    </mat-expansion-panel-header>
+    <mat-card>
+      <mat-card-content>
+        <div class="content" mat-dialog-content>
+          <div class="images">
+            <div class="img-container" *ngFor="let image of item.data.images;">
+              <img
+                src="{{ image.src }}"
+                alt="{{ image.alt }}"
+                title="{{ image.title }}"
+                class="image"
+              >
+            </div>
+          </div>
+          <div class="text-container">
+            <p class="content-text">
+              {{ item.data.content }}
+            </p>
+
+            <p class="content-text" *ngIf="item.data.repository">
+              More info about this app, visit my Github repository:
+              <a href="{{ item.data.repository }}" target="_blank">{{ item.data.title }}</a>
+            </p>
+          </div>
+
+
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </mat-expansion-panel>
+
+
+</mat-accordion>
+

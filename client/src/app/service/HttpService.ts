@@ -20,7 +20,7 @@ class HttpService {
       { params: new HttpParams().set('name', term) } : {};
 
      */
-    console.log("HttpService get Method");
+    //console.log("HttpService get Method");
     return this.http.get(url, options)
       .pipe(catchError(this.httpErrorHandler.error('get', [])));
   }

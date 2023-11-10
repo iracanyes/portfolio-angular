@@ -11,6 +11,7 @@ import dotenv from "dotenv";
 import MySession from "./config/session";
 import {Csurf} from "./config/csurf";
 import {RateLimiter} from "./config/rate_limiter";
+import compression from "compression";
 
 // Environment variable file path
 dotenv.config({ path: ".env.local"});
@@ -48,6 +49,9 @@ app.use(cookieParser(process.env.SESSION_SECRET));
 MySession(app);
 // Rate limiter
 RateLimiter(app);
+
+// Compression Gzip/deflate
+app.use(compression());
 
 // Serve static files located in directory public
 app.use(express.static(path.resolve('public')));

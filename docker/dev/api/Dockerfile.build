@@ -1,34 +1,52 @@
-FROM node:latest as build
+FROM node:latest as node
 
-RUN mkdir -p /usr/local/app
+# Update image and install process manager
+#RUN apk update && \
+#    apk --no-cache upgrade \
+
+RUN npm i npm@latest -g
+
+# Build app with dev dependencies
+FROM node as build
 
 WORKDIR /usr/local/app
 
-COPY package*.json /usr/local/app
+COPY package*.json tsconfig*.json ./
 
-# Install dependencies
 RUN npm install
 
-# Copy App files
-COPY . /usr/local/app
+COPY . ./
 
-# Build app
 RUN npm run build
 
-# Nginx Container
-######################
-# Use official image
-FROM nginx:latest
 
-# Copy build files to nginx default public access directory
-COPY --from=build /usr/local/app/dist/* /usr/share/nginx/html/
+FROM node as prod
 
-# Create Certificates
+ENV NODE_ENV production
 
+WORKDIR /srv/app
 
-# Expose HTTP server port for nginx-proxy
-EXPOSE 80
+# Copy package configuration
+COPY --chown=node:node --from=build /usr/local/app/package*.json ./
+# Copy all the production-ready files to files
+COPY --chown=node:node --from=build /usr/local/app/dist  ./dist
+
+# Change ownership of root directory
+RUN chown -R node:node /srv/app
+
+# Expose HTTP/HTTPS server port
+# Important: Expose command must be executed as root user
+EXPOSE 3000 8443
+
+# Use a non-root user
+User node
+
+# Install dependencies
+RUN npm install --only=production && \
+    npm cache clean --force
+
+CMD ["npm","run","start:prod"]
 
 # Check if app is running. If not, shutdown the container
-HEALTHCHECK --interval=2m --timeout=5s --start-period=2m \
-  CMD nc -z -w5 127.0.0.1 80 || exit 1
+#HEALTHCHECK --interval=2m --timeout=5s --start-period=2m \
+#  CMD nc -z -w5 127.0.0.1 8443 || exit 1

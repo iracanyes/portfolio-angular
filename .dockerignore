@@ -11,4 +11,42 @@ logs/
 
 .env$
 .env.local
-.env.prod/api/.idea/
+.env.prod
+
+/api/.idea/
+
+**/*.pem
+**/*.cert
+**/*.key
+node_modules/
+**/node_modules
+
+# compiled output
+**/dist/
+**/tmp/
+**/out-tsc
+
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# misc
+/client/.angular/cache
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Custom
+**/*.save

@@ -35,9 +35,6 @@
               "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
               "src/assets/sass/material-themes.scss",
               "src/styles.scss"
-            ],
-            "scripts": [
-              "node_modules/js-string-escape/index.js"
             ]
           },
           "configurations": {
@@ -122,8 +119,7 @@
               "src/styles.scss"
             ],
             "scripts": [
-              "node_modules/tinymce/tinymce.min.js",
-              "node_modules/js-string-escape/index.js"
+              "node_modules/tinymce/tinymce.min.js"
             ]
           }
         }

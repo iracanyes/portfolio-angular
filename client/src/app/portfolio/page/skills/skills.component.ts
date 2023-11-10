@@ -56,7 +56,7 @@ export class SkillsComponent implements OnInit {
 
     // Retrieve  HTML Collection items
     const wrapperItems = gsap.utils.toArray("div.item");
-    console.log("ngOnInit wrapperItems2", wrapperItems);
+    //console.log("ngOnInit wrapperItems2", wrapperItems);
     wrapperItems && wrapperItems.map((el: any, i: number) => {
       const bg = el.children[0];
       const title = el.children[1];

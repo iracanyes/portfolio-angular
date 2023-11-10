@@ -49,7 +49,7 @@ export class WorkComponent implements OnInit, AfterViewInit {
       // Set the bg variable for the section
       section.bg = section.querySelector(".bg");
 
-      console.log(bgs[i]);
+      //console.log(bgs[i]);
       // Give the backgrounds some random images
       section.bg.style.backgroundImage = `url(${bgs[i]})`;
       // Set initial position
@@ -71,7 +71,7 @@ export class WorkComponent implements OnInit, AfterViewInit {
 
       // fade in animation
       const card = section.querySelector(".card");
-      console.log("onInit card", card);
+      //console.log("onInit card", card);
       gsap.fromTo(card, {
         opacity: 0.0,
       }, {

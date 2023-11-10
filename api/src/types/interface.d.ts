@@ -1,7 +1,8 @@
 
 
 export interface IMessage extends Document{
+  username: string;
   email: string;
   subject: string;
-  content: string;
+  message: string;
 }

@@ -6,7 +6,7 @@
 **/*.pem
 **/*.cert
 **/*.key
-node_modules
+node_modules/
 **/node_modules
 
 
@@ -58,3 +58,4 @@ Thumbs.db
 **/*.crt
 **/*.pem!
 /api/.idea/
+.env.prod

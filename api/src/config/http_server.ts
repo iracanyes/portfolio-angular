@@ -20,11 +20,11 @@ export default ( app: Application ): void => {
     // Configure port for each server
     httpServer.listen(process.env.EXPRESS_HTTP_SERVER_PORT,() => {
       // tslint: disable-next-line:no-console
-      console.log(`Server started at http://localhost:${process.env.EXPRESS_HTTP_SERVER_PORT}`);
+      //console.log(`Server started at http://localhost:${process.env.EXPRESS_HTTP_SERVER_PORT}`);
     });
     httpsServer.listen(process.env.EXPRESS_HTTPS_SERVER_PORT,() => {
       // tslint: disable-next-line:no-console
-      console.log(`Server started at https://localhost:${process.env.EXPRESS_HTTPS_SERVER_PORT}`);
+      //console.log(`Server started at https://localhost:${process.env.EXPRESS_HTTPS_SERVER_PORT}`);
     });
   }catch (e) {
     console.error(e);

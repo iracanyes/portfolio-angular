@@ -15,12 +15,16 @@
 }
 
 
+.mat-expansion-panel{
+  background: transparent;
+}
+mat-card{
+  background: transparent;
+}
 .content{
   display: flex;
   flex-direction: row;
   gap: 30px;
-
-
 
   .images{
     display: flex;

@@ -26,6 +26,10 @@ import { WorkDialogCardComponent } from './component/work-dialog-card/work-dialo
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import {ContactModule} from "./page/contact/contact.module";
+import { WorkExpansionPanelComponent } from './component/work-expansion-panel/work-expansion-panel.component';
+import {MatExpansionModule} from "@angular/material/expansion";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatFormFieldModule} from "@angular/material/form-field";
 
 
 const matModules = [
@@ -53,6 +57,7 @@ const matModules = [
     WorkComponent,
     WorkDialogComponent,
     WorkDialogCardComponent,
+    WorkExpansionPanelComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,6 +69,9 @@ const matModules = [
     DirectivesModule,
     ContactModule,
     PortfolioRoutingModule,
+    MatExpansionModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
   ],
   exports: [],
   providers: [],

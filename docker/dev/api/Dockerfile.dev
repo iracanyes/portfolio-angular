@@ -11,7 +11,7 @@ RUN npm install
 
 COPY . /usr/local/app
 
-EXPOSE 3000 49153
+EXPOSE 3000
 
 # Serve app
 CMD ["npm", "run","start:dev"]

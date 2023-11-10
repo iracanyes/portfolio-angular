@@ -10,16 +10,11 @@ services:
       context: ./api
       # relative path from build context directory to Dockerfile
       dockerfile: ../docker/dev/api/Dockerfile.build
-    env_file:
-      - ./api/.env.local
-    #restart: always
     #depends_on:
     #  - database
     volumes:
       - ./api:/usr/local/app:rw,cached
       - ./api/node_modules:/usr/local/app/node_modules
-      - ./docker/prod/api/nginx/nginx-default.conf:/etc/nginx/nginx.conf:ro
-      - ./docker/prod/api/nginx/conf.d/:/etc/nginx/conf.d/:ro
   client:
     container_name: portfolio_client
     # Name of the image to pull

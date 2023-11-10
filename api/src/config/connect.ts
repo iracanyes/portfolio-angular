@@ -7,7 +7,7 @@ export default (() => {
     mongoose
       .connect(process.env.MONGODB_DB_AUTH_URL as string)
       .then( ()=> {
-        console.log(`Successfully connect to database`);
+        //console.log(`Successfully connect to database`);
       })
       .catch( e => {
         console.error(`Error connect to database\n`, e);

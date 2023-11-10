@@ -32,7 +32,7 @@ export class ScrollToDirective extends CoreAnimationDirective implements OnInit{
   }
 
   protected override animateIn() {
-    console.log("animateIn() route", this.route);
+    //console.log("animateIn() route", this.route);
     this.timeline.to(
       this.route.nativeElement,
       {

@@ -10,6 +10,7 @@ exports.default = (app) => {
     app.use((0, cors_1.default)({
         origin: new RegExp(String(CORS_ALLOW_ORIGIN), "i"),
         methods: CORS_METHODS,
+        credentials: true,
         allowedHeaders: CORS_ALLOWED_HEADERS ? CORS_ALLOWED_HEADERS.split(',') : '',
         optionsSuccessStatus: 200
     }));

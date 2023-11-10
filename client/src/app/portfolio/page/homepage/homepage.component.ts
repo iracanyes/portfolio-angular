@@ -19,7 +19,7 @@ export class HomepageComponent implements OnInit {
 
   particlesLoaded(container: Container): void
   {
-    console.log("ngParticles loaded", container);
+    //console.log("ngParticles loaded", container);
   }
 
   particlesInit(main: Main): Promise<void>
@@ -29,7 +29,7 @@ export class HomepageComponent implements OnInit {
      * using the current tsParticles instance (main)
      */
     return new Promise(() => {
-      console.log("particlesInit", main);
+      //console.log("particlesInit", main);
     });
   }
 
