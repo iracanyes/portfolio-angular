@@ -2,7 +2,8 @@ export const workMobileData = [
   {
     icon: "/assets/svg/netflix-logo.svg",
     data: {
-      title: "Streaming app ( Netflix like app )",
+      title: "Streaming app",
+      subtitle: "Netflix like app",
       images: [
         {
           src: "/assets/img/projets/mobile/netflixclone/home_page.PNG",
@@ -28,7 +29,8 @@ export const workMobileData = [
   {
     icon: "/assets/img/WhatsApp.svg.png",
     data: {
-      title: "Chat app ( Whatsapp like application )",
+      title: "Chat app",
+      subtitle: "Whatsapp like application",
       images: [
         {
           src: "/assets/img/projets/mobile/whatsapp/chatlist-page.PNG",
@@ -54,7 +56,8 @@ export const workMobileData = [
   {
     icon: "/assets/svg/uber-logo.svg",
     data: {
-      title: "Geolocation application ( Uber like app)",
+      title: "Geolocation application",
+      subtitle: "Uber like app",
       images: [
         {
           src: "/assets/img/projets/mobile/uberClone/DriverApp/pickup-customer.PNG",
@@ -81,7 +84,8 @@ export const workMobileData = [
   {
     icon: "/assets/svg/Twitter_Bird.svg",
     data: {
-      title: "Blog - Twitter like app",
+      title: "Blog application",
+      subtitle: "Twitter like app",
       repository: "https://github.com/iracanyes/twitterclone",
       content: "This exercise is the first of 4 exercise made for learning cross-mobile development.\n It allowed me to learn media management and realtime database on mobile application.",
       images: [

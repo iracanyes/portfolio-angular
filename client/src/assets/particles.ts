@@ -1,15 +1,19 @@
 import {
   CollisionMode,
-  DestroyMode, DestroyType,
+  DestroyType,
   DivType,
   EasingType,
   InteractivityDetect,
   MoveDirection,
-  OutMode, RollMode, RotateDirection, StartValueType, TiltDirection,
-} from "tsparticles";
+  OutMode,
+  RotateDirection,
+  StartValueType
+} from "@tsparticles/engine";
+import {IParticlesProps} from "@tsparticles/angular";
+
 
 //let iRandom: {enable: boolean, minimumValue: number} = undefined;
-export const particlesOpt = {
+export const particlesOpt:IParticlesProps = {
   "autoPlay": true,
   "background": {
     "color": {
@@ -60,7 +64,10 @@ export const particlesOpt = {
           "smooth": 95
         }
       },
-      "resize": true
+      "resize": {
+        "enable": true,
+        delay: 0
+      }
     },
     "modes": {
       "attract": {
@@ -311,34 +318,18 @@ export const particlesOpt = {
   "particles": {
     "bounce": {
       "horizontal": {
-        "random": {
-          "enable": false,
-          "minimumValue": 0.1
-        },
         "value": 1
       },
       "vertical": {
-        "random": {
-          "enable": false,
-          "minimumValue": 0.1
-        },
         "value": 1
       }
     },
     "collisions": {
       "bounce": {
         "horizontal": {
-          "random": {
-            "enable": false,
-            "minimumValue": 0.1
-          },
           "value": 1
         },
         "vertical": {
-          "random": {
-            "enable": false,
-            "minimumValue": 0.1
-          },
           "value": 1
         }
       },
@@ -376,7 +367,7 @@ export const particlesOpt = {
       }
     },
     "destroy": {
-      "mode": DestroyMode.none,
+      "mode": DestroyType.none,
       "split": {
         "count": 1,
         "factor": {
@@ -471,10 +462,6 @@ export const particlesOpt = {
       "path": {
         "clamp": true,
         "delay": {
-          "random": {
-            "enable": false,
-            "minimumValue": 0
-          },
           "value": 0
         },
         "enable": false,
@@ -498,8 +485,8 @@ export const particlesOpt = {
       "trail": {
         "enable": false,
         "length": 10,
-        "fillColor": {
-          "value": "#000000"
+        "fill": {
+          "color": "#000000"
         }
       },
       "vibrate": false,
@@ -508,17 +495,16 @@ export const particlesOpt = {
     "number": {
       "density": {
         "enable": true,
-        "area": 1200,
-        "factor": 1000
+        "height": 1200,
+        "width": 1000
       },
-      "limit": 0,
+      "limit": {
+        mode: "wait",
+        value: 0,
+      },
       "value": 200
     },
     "opacity": {
-      "random": {
-        "enable": true,
-        "minimumValue": 0.3
-      },
       "value": {
         "min": 0.3,
         "max": 0.8
@@ -530,7 +516,6 @@ export const particlesOpt = {
         "sync": false,
         "destroy": DestroyType.none,
         "startValue": StartValueType.random,
-        "minimumValue": 0.3
       }
     },
     "orbit": {
@@ -574,7 +559,7 @@ export const particlesOpt = {
         "enable": false,
         "value": 0
       },
-      "mode": RollMode.vertical,
+      "mode": "vertical",
       "speed": 25
     },
     "rotate": {
@@ -607,10 +592,6 @@ export const particlesOpt = {
       "type": "circle"
     },
     "size": {
-      "random": {
-        "enable": true,
-        "minimumValue": 1
-      },
       "value": {
         "min": 1,
         "max": 3
@@ -622,7 +603,6 @@ export const particlesOpt = {
         "sync": false,
         "destroy": DestroyType.none,
         "startValue": StartValueType.random,
-        "minimumValue": 1
       }
     },
     "stroke": {
@@ -665,7 +645,7 @@ export const particlesOpt = {
         "speed": 0,
         "sync": false
       },
-      "direction": TiltDirection.clockwise,
+      "direction": "clockwise",
       "enable": false
     },
     "twinkle": {
@@ -686,10 +666,6 @@ export const particlesOpt = {
       "speed": 50
     },
     "zIndex": {
-      "random": {
-        "enable": false,
-        "minimumValue": 0
-      },
       "value": 0,
       "opacityRate": 1,
       "sizeRate": 1,

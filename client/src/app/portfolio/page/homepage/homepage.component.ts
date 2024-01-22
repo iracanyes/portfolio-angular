@@ -1,6 +1,12 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { particlesOpt } from "../../../../assets/particles";
-import {Container, Main} from "tsparticles";
+
+import {NgParticlesService} from "@tsparticles/angular";
+import { loadSlim } from "@tsparticles/slim";
+import {
+  Container,
+  Main,
+} from "@tsparticles/engine";
 
 @Component({
   selector: 'portfolio-homepage',
@@ -8,13 +14,19 @@ import {Container, Main} from "tsparticles";
   styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent implements OnInit {
-  particlesOpt = particlesOpt;
+  particlesOpts = particlesOpt;
 
   constructor(
-    protected el: ElementRef
+    protected el: ElementRef,
+    private readonly ngParticlesService: NgParticlesService
   ) { }
 
   ngOnInit(): void {
+    this.ngParticlesService.init(async (engine) => {
+      console.log(engine);
+
+      await loadSlim(engine);
+    })
   }
 
   particlesLoaded(container: Container): void
@@ -22,16 +34,7 @@ export class HomepageComponent implements OnInit {
     console.log("ngParticles loaded", container);
   }
 
-  particlesInit(main: Main): Promise<void>
-  {
 
-    /* Starting from 1.19.0 you can add custom presets or shape here,
-     * using the current tsParticles instance (main)
-     */
-    return new Promise(() => {
-      console.log("particlesInit", main);
-    });
-  }
 
 
 

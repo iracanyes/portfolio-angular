@@ -8,9 +8,6 @@
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
-        },
-        "@schematics/angular:application": {
-          "strict": true
         }
       },
       "root": "",
@@ -28,7 +25,12 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "src/assets",
+                "ignore": [],
+                "output": "/assets/"
+              },
               {"glob":"**/*","input": "node_modules/tinymce", "output": "/assets/tinymce/" }
             ],
             "styles": [
@@ -36,9 +38,11 @@
               "src/assets/sass/material-themes.scss",
               "src/styles.scss"
             ],
-            "scripts": [
-              "node_modules/js-string-escape/index.js"
-            ]
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/assets/sass"
+              ]
+            }
           },
           "configurations": {
             "production": {
@@ -122,13 +126,14 @@
               "src/styles.scss"
             ],
             "scripts": [
-              "node_modules/tinymce/tinymce.min.js",
-              "node_modules/js-string-escape/index.js"
+              "node_modules/tinymce/tinymce.min.js"
             ]
           }
         }
       }
     }
   },
-  "defaultProject": "portfolio"
+  "cli": {
+    "analytics": false
+  }
 }

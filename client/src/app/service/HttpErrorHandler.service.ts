@@ -19,7 +19,7 @@ class HttpErrorHandlerService {
         ? error.error.message
         : `Server returned code ${error.status} and body:\n${error.error}`
       // Logging
-      console.log(error);
+      //console.log(error);
 
       return of(result);
     };

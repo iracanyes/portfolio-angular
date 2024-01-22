@@ -9,12 +9,13 @@
     "url": "https://github.com/iracanyes/portfolio-angular/client"
   },
   "bugs": {
-    "url": "https://github.com/iracanyes/portfolio-angular/issues"
+    "url": "https://github.com/iracanyes/portfolio-angular/client/issues"
   },
   "keywords": [],
-  "main": "src/index.ts",
+  "main": "dist/index.js",
   "scripts": {
     "start:dev": "nodemon --watch src --ext ts --exec ts-node --delay 2 --ignore '*.test.ts' src/index.ts",
+    "start:prod": "node dist/index.js",
     "start": "nodemon dist/index.js",
     "prebuild": "npx eslint -c .eslintrc.js --fix",
     "build": "tsc",
@@ -23,10 +24,12 @@
   },
   "dependencies": {
     "body-parser": "^1.19.1",
+    "compression": "^1.7.4",
     "connect-mongodb-session": "^3.1.1",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "csurf": "^1.11.0",
+    "dompurify": "^2.3.6",
     "dotenv": "^16.0.0",
     "express": "^4.17.2",
     "express-rate-limit": "^6.3.0",
@@ -41,15 +44,18 @@
   },
   "devDependencies": {
     "@types/body-parser": "^1.19.2",
+    "@types/compression": "^1.7.2",
     "@types/connect-mongodb-session": "^2.4.2",
     "@types/cookie-parser": "^1.4.2",
     "@types/cors": "^2.8.12",
     "@types/csurf": "^1.11.2",
+    "@types/dompurify": "^2.3.3",
     "@types/express": "^4.17.2",
     "@types/express-session": "^1.17.4",
     "@types/node": "^17.0.15",
     "@types/nodemailer": "^6.4.4",
-    "@typescript-eslint/eslint-plugin": "^5.10.2",
+    "@types/validator": "^13.7.2",
+    "@typescript-eslint/eslint-plugin": "^5.16.0",
     "@typescript-eslint/parser": "^5.10.2",
     "eslint": "^8.8.0",
     "eslint-config-prettier": "^8.3.0",

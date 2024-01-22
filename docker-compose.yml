@@ -52,7 +52,7 @@ services:
       - api
     ports:
       # Hot reload
-      - "49153:49153"
+      #- "49153:49153"
       # HTTP if nginx is running
       #- "8080:8080"
       # HTTPS if nginx is running

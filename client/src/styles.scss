@@ -1,9 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-@import "src/assets/sass/base-dir";
-@import "src/assets/sass/custom-fonts";
-@import "~tinymce/skins/ui/oxide/skin.min.css";
-@import "~tinymce/skins/ui/oxide/content.min.css";
-@import "~tinymce/skins/content/default/content.min.css";
+@use "base-dir" as bd;
+@import "custom-fonts";
+@import "~node_modules/tinymce/skins/ui/oxide/skin.min.css";
+@import "~node_modules/tinymce/skins/ui/oxide/content.min.css";
+@import "~node_modules/tinymce/skins/content/default/content.min.css";
 // Choose one of two theme
 //@import "~quill/dist/quill.snow.css";
 //@import "node_modules/quill/dist/quill.bubble.css";

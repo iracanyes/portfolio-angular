@@ -1,0 +1,78 @@
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.example-headers-align .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.mat-expansion-panel{
+  background: transparent;
+}
+
+// Header
+mat-expansion-panel-header{
+  background: rgba(255,255,255,0.1);
+  mat-panel-title{
+    font-family: "SF Pro Display Medium";
+    font-size: 18px;
+  }
+
+  mat-panel-description{
+    font-size: 16px;
+  }
+}
+// Card
+mat-card{
+  background: transparent;
+}
+
+.content{
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+
+  .images{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    .img-container{
+      display: flex;
+      width: 100px;
+      height: 200px;
+      &:nth-of-type(2){
+        display: flex;
+        width: 110px;
+        height: 220px;
+        img{
+          width: 110px;
+          height: 220px;
+        }
+      }
+    }
+
+  }
+  img{
+    width: 100px;
+    height: 200px;
+  }
+
+  .text-container{
+    background: rgba(255,255,255,0.2);
+    width: 350px;
+    padding: 10px 15px;
+  }
+
+  p{
+    color: #000405;
+    font-family: "SF UI Text Regular", Roboto;
+    font-size: 16px;
+  }
+}

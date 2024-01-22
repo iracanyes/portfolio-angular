@@ -13,7 +13,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AboutComponent } from './page/about/about.component';
 import { MatCardModule } from '@angular/material/card';
 import { SkillsComponent } from './page/skills/skills.component';
-import { NgParticlesModule } from 'ng-particles';
 import { HomeCardComponent } from './component/home-card/home-card.component';
 import { ProgressBarComponent } from './widget/progress-bar/progress-bar.component';
 import { SkillsCardComponent } from './component/skills-card/skills-card.component';
@@ -26,6 +25,11 @@ import { WorkDialogCardComponent } from './component/work-dialog-card/work-dialo
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import {ContactModule} from "./page/contact/contact.module";
+import { WorkExpansionPanelComponent } from './component/work-expansion-panel/work-expansion-panel.component';
+import {MatExpansionModule} from "@angular/material/expansion";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {NgxParticlesModule} from "@tsparticles/angular";
 
 
 const matModules = [
@@ -53,17 +57,21 @@ const matModules = [
     WorkComponent,
     WorkDialogComponent,
     WorkDialogCardComponent,
+    WorkExpansionPanelComponent,
   ],
   imports: [
     BrowserModule,
     CommonModule,
     RouterModule,
     FontAwesomeModule,
-    NgParticlesModule,
+    NgxParticlesModule,
     ...matModules,
     DirectivesModule,
     ContactModule,
     PortfolioRoutingModule,
+    MatExpansionModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
   ],
   exports: [],
   providers: [],

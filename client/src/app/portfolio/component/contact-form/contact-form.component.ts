@@ -2,9 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import {HttpClient, HttpHeaders, HttpErrorResponse, HttpResponse} from "@angular/common/http";
 import { Environment } from "../../../../environments/environment.local";
-import jsStringEscape from "js-string-escape";
+import DOMPurify from "dompurify";
 import {ContactMessage} from "../../../../types/types";
-import escapeHtml from "escape-html";
 
 @Component({
   selector: "app-contact-form",
@@ -45,9 +44,10 @@ export class ContactFormComponent implements OnInit {
       .get(`${Environment.PORTFOLIO_API_URL}/contact/send_mail`, { observe: 'response'})
       .subscribe({
         next: (data: HttpResponse<Object>) => {
-          console.log("Contact Init - response", data);
+          //console.log("Contact Init - response", data);
+
           if(data){
-            data.headers.keys().map(key => console.log(`${key} : ${data.headers.get(key)}`));
+            //data.headers.keys().map(key => console.log(`${key} : ${data.headers.get(key)}`));
             //const headers = data.headers.get('');
             //this._crsfToken = <string> data?.headers.cookie.split("=")[1];
           }
@@ -106,28 +106,30 @@ export class ContactFormComponent implements OnInit {
       : "";
   }
 
-  sanitize(data: ContactMessage) {
+  sanitize(data: Partial<ContactMessage>): ContactMessage {
     return {
-      name: jsStringEscape(data.name),
-      email: jsStringEscape(data.email),
-      subject: jsStringEscape(data.subject),
-      message: escapeHtml(data.message)
+      name: data.name != undefined ? data.name : "",
+      email: data.email != undefined ? data.email : "",
+      subject: data.subject != undefined ? data.subject : "",
+      message: data.message != undefined ? DOMPurify.sanitize(data.message, { USE_PROFILES: { html: true }}) : ""
     };
   }
 
   onSubmit() {
+    if(this.contactForm.value.message ==  undefined )
+      return;
     // eslint-disable-next-line no-console
-    console.log("Value submitted\n", this.contactForm.value);
-    const data = this.sanitize(this.contactForm.value);
+    //console.log("Value submitted\n", this.contactForm.value);
+    let data = this.sanitize(this.contactForm.value);
 
     try {
       // eslint-disable-next-line no-console
-      console.log("Value submitted after sanitize\n", data);
+      //console.log("Value submitted after sanitize\n", data);
       //console.log("this._crsfToken\n", this._crsfToken);
 
 
       if(true){
-        console.log("this._crsfToken\n", this._crsfToken);
+        //console.log("this._crsfToken\n", this._crsfToken);
 
         /* Create headers
         const headers = new HttpHeaders()
@@ -148,7 +150,7 @@ export class ContactFormComponent implements OnInit {
           .subscribe({
             next: (data: any) => {
               // eslint-disable-next-line no-console
-              console.log("Success!\n", data);
+              //console.log("Success!\n", data);
             },
             error: (error: HttpErrorResponse) => {
               // eslint-disable-next-line no-console

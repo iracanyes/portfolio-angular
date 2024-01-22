@@ -12,22 +12,24 @@ const store = new MongoDBStore({
     collection: 'mySessions'
 });
 const sessionOpt = {
-    secret: "portfolio cookie",
+    name: 'myCookieSessionId',
+    secret: process.env.SESSION_SECRET,
     resave: false,
+    saveUninitialized: true,
     store,
     cookie: {
-        key: "XSRF-TOKEN",
-        path: "/",
         httpOnly: true,
-        signed: true,
         secure: true,
-        sameSite: true,
+        maxAge: 7 * 24 * 60 * 60 * 1000,
         domain: process.env.NODE_ENV === "development"
-            ? "localhost"
-            : "portfolio.iracanyes.com"
+            ? 'localhost'
+            : 'portfolio.iracanyes.com'
     }
 };
 const MySession = (app) => {
+    // For secure cookies
+    app.set('trust proxy', 1);
+    // @ts-ignore
     app.use((0, express_session_1.default)(sessionOpt));
 };
 exports.default = MySession;

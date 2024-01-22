@@ -1,3 +1,4 @@
+import "jasmine";
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
@@ -10,6 +11,9 @@ describe('AppComponent', () => {
     }).compileComponents();
   });
 
+  /*
+   * it() define a Test Spec with
+   */
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
@@ -19,13 +23,13 @@ describe('AppComponent', () => {
   it(`should have as title 'portfolio'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('portfolio');
+    expect(app.title).toEqual('Portfolio');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('portfolio app is running!');
+    expect(compiled.querySelector('span#appName')?.textContent).toContain('Portfolio');
   });
 });

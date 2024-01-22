@@ -50,6 +50,13 @@ Build images with this command:
 ````shell
 $ docker-compose -f docker-compose.build.yml build 
 ````
+
+If you want to target a specific stage of an image in the Dockerfile
+````shell
+# docker -f docker-compose.build.yml build --target [STAGE_NAME] -t [TAGNAME]
+$ docker -f docker-compose.build.yml build --target dev -t username/project_name:tag
+docker
+````
 #####2. Push images to repository
 ``````shell
 $ docker-compose -f docker-compose.build.yml push

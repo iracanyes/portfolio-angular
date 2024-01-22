@@ -1,9 +1,8 @@
-@import "~src/assets/sass/variables";
+@use "variables" as v;
 
 form{
   display: flex;
   flex-direction: column;
-  //background: $dark-color;
   box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
   gap: 0.8rem 1rem;
   padding: 2rem;

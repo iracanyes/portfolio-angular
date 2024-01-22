@@ -31,6 +31,8 @@ class Mailer{
       response: res,
     };
   }
-};
+
+
+}
 
 export default Mailer;

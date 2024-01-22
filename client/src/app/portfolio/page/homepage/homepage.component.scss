@@ -1,11 +1,10 @@
-@import "src/assets/sass/variables";
+@use "variables" as v;
 
 div#homepage{
   display: flex;
   flex: 1 1 auto;
   width: 100vh;
   height: 100vh;
-  //z-index: -1;
 
   header{
     position: absolute;
@@ -34,7 +33,7 @@ div#homepage{
       bottom:0;
       right:0;
       left: 0;
-      background-color: $dark-color;
+      background-color: v.$dark-color;
     }
 
     .card{

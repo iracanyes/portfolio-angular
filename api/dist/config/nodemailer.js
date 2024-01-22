@@ -31,7 +31,7 @@ class Mailer {
         return __awaiter(this, void 0, void 0, function* () {
             const res = yield this.transporter.sendMail({
                 from: `${data.username} <${data.email}>`,
-                to: "iracanyes@gmail.com, k.iracanye@gmail.com",
+                to: process.env.CONTACT_EMAIL,
                 subject: data.subject,
                 html: data.message
             });

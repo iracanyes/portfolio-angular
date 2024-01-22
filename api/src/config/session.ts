@@ -22,7 +22,7 @@ const sessionOpt = {
     maxAge: 7 * 24 * 60 * 60 * 1000,
     domain: process.env.NODE_ENV === "development"
       ? 'localhost'
-      : 'portfolio.iracanyes.com'
+      : process.env.CLIENT_DOMAIN
   }
 };
 

@@ -20,6 +20,16 @@
   src: local("SF Pro Display Bold"), url("/assets/fonts/san-francisco-pro/SF-Pro-Display-Bold.otf") format("opentype");
 }
 
+@font-face {
+  font-family: "SF Pro Display Medium";
+  src: local("SF Pro Display Medium"), url("/assets/fonts/san-francisco-pro/SF-Pro-Display-Medium.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "SF UI Text Regular";
+  src: local("SF UI Text Regular"), url("/assets/fonts/san-francisco-pro/SFUIText-regular.otf") format("opentype");
+}
+
 /**
  * Add Google fonts
  */

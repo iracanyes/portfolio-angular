@@ -11,7 +11,7 @@ export const csrfProtection = csurf({
     maxAge: 6 * 60 * 60 * 1000,
     domain: process.env.NODE_ENV === "development"
     ? 'localhost'
-    : 'portfolio.iracanyes.com'
+    : process.env.CLIENT_DOMAIN
   },
   ignoreMethods: ["GET","HEAD","OPTIONS"],
   value: (req: Request) => {
@@ -24,13 +24,13 @@ export const Csurf = (app: Application, router: Router) => {
 
   app.all("*", csrfProtection, (req, res,  next ) => {
     res.cookie('XSRF-TOKEN', req.csrfToken() ,{
-      path: '/',
+      //path: '/',
       httpOnly: false,
       secure: true,
       maxAge: 6 * 60 * 60 * 1000,
       domain: process.env.NODE_ENV === "development"
         ? 'localhost'
-        : 'portfolio.iracanyes.com'
+        : process.env.CLIENT_DOMAIN
     });
     next();
   })

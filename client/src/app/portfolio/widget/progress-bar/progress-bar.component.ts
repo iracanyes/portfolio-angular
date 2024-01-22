@@ -1,9 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {CommonModule } from "@angular/common";
 
 @Component({
   selector: 'app-progress-bar',
   templateUrl: './progress-bar.component.html',
-  styleUrls: ['./progress-bar.component.scss']
+  styleUrls: ['./progress-bar.component.scss'],
+
 })
 export class ProgressBarComponent implements OnInit {
   color:string = "";

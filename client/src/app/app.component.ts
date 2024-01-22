@@ -7,5 +7,5 @@ import "../environments/gsap-config";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'portfolio';
+  title: string = 'Portfolio';
 }

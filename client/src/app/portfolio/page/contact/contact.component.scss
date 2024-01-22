@@ -1,4 +1,4 @@
-@import "~src/assets/sass/variables";
+@import "variables";
 
 div#contact-page{
   width: 100%;
@@ -18,9 +18,7 @@ header{
 main{
   display: flex;
   flex: 1 1 auto;
-  //overflow-y: scroll;
   background: $blue-darker2;
-  //margin-top: 100px;
 }
 
 section {
@@ -30,7 +28,6 @@ section {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  //color: white;
 
   h1 {
     font-family: "Original Surfer", Roboto, "Helvetica Neue", sans-serif;
