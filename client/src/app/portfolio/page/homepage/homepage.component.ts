@@ -31,11 +31,8 @@ export class HomepageComponent implements OnInit {
 
   particlesLoaded(container: Container): void
   {
-    console.log("ngParticles loaded", container);
+    //console.log("ngParticles loaded", container);
   }
-
-
-
 
 
 }

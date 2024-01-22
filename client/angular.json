@@ -37,12 +37,16 @@
               "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
               "src/assets/sass/material-themes.scss",
               "src/styles.scss"
+<<<<<<< HEAD
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
                 "src/assets/sass"
               ]
             }
+=======
+            ]
+>>>>>>> 940d0466684a25e9603d5f8cd0a1110cce42a565
           },
           "configurations": {
             "production": {

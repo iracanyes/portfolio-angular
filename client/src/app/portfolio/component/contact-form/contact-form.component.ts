@@ -120,7 +120,7 @@ export class ContactFormComponent implements OnInit {
       return;
     // eslint-disable-next-line no-console
     //console.log("Value submitted\n", this.contactForm.value);
-    let data = this.sanitize(this.contactForm.value);
+    const data: ContactMessage = this.sanitize(this.contactForm.value);
 
     try {
       // eslint-disable-next-line no-console
